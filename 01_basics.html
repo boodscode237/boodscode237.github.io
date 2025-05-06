@@ -188,6 +188,14 @@
 
 
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Travailler avec des listes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_Travailler_avec_des_lists.html">Travailler avec des listes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Instructions Conditionnelles en Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_instructions_conditionelles.html">Instructions Conditionnelles en Python</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -546,7 +554,7 @@
 </div>
 </div>
 <p>Nous avons ajouté une variable nommée message. Chaque variable est liée à une valeur, qui est l’information associée à cette variable. Dans ce cas, la valeur est le texte “<strong>Bonjour le monde Python!</strong>”.</p>
-<p>L’ajout d’une variable rend un peu plus de travail pour l’interpréteur Python. Quand il traite la première ligne, il associe le message variable avec le texte “<strong>Bonjour le monde Python!</strong>”. Quand il atteint la deuxième ligne, il affiche la valeur associée au message à l’écran.</p>
+<p>L’ajout d’une variable crée un peu plus de travail pour l’interpréteur Python. Quand il traite la première ligne, il associe le message variable avec le texte “<strong>Bonjour le monde Python!</strong>”. Quand il atteint la deuxième ligne, il affiche la valeur associée au message à l’écran.</p>
 <p>Ajoutons deux nouvelles lignes de code :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Bonjour mon nom est Brice !&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
@@ -573,7 +581,7 @@ Bonjour mon nom est Brice !
 <h3><strong>Noms de variables</strong><a class="headerlink" href="#noms-de-variables" title="Link to this heading">#</a></h3>
 <p>Vous pouvez nommer une variable n’importe quoi, pourvu qu’elle respecte les trois règles suivantes :</p>
 <ol class="arabic simple">
-<li><p>Elle ne peut s’agir que d’un seul mot.</p></li>
+<li><p>Il ne peut s’agir que d’un seul mot.</p></li>
 <li><p>Elle ne peut utiliser que des lettres, des chiffres et le caractère de soulignement (_).</p></li>
 <li><p>Elle ne peut pas commencer par un chiffre.</p></li>
 </ol>
@@ -606,8 +614,8 @@ Bonjour mon nom est Brice !
 </tbody>
 </table>
 </div>
-<p>Il peut falloir un peu de pratique pour apprendre à créer de bons noms de variables. Au fur et à mesure que vous écrirez plus de programmes et commencerez à lire le code des autres, vous vous améliorerez à trouver des noms significatifs.</p>
-<p>for now we should use variables like this:</p>
+<p>Il faut un peu de pratique pour apprendre à créer de bons noms de variables. Au fur et à mesure que vous écrirez plus de programmes et commencerez à lire d’autres codes, vous vous améliorerez à trouver des noms significatifs.</p>
+<p>Pour l’instant, nous devrions utiliser des variables comme ceci:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">etudiant</span>
 <span class="n">nom_etudiant</span>
 <span class="n">MOTDEPASSE</span><span class="p">(</span><span class="n">rarement</span><span class="p">)</span>
@@ -663,7 +671,7 @@ Faisons notre première erreur.</p>
 </div>
 </div>
 <p>Les noms de variables sont sensibles à la casse, ce qui signifie que le spam, le SPAM, le spam et le sPaM sont quatre variables différentes. C’est une convention Python pour commencer vos variables avec une lettre minuscule.</p>
-<p>🖐🏿Une variable est comme une boîte dans la mémoire de l’ordinateur où vous pouvez stocker une seule valeur. Si vous souhaitez utiliser le résultat d’une expression évaluée plus tard dans votre vous pouvez l’enregistrer dans une variable.🖐🏿</p>
+<p>🖐🏿Une variable est comme une boîte dans la mémoire de l’ordinateur où vous pouvez stocker une seule valeur. Si vous souhaitez utiliser le résultat d’une expression évaluée plus tard dans votre code vous pouvez l’enregistrer dans une variable.🖐🏿</p>
 <p>Cette idée peut être utile les premières fois que vous utilisez une variable, mais ce n’est pas une façon précise de décrire comment les variables sont représentées en interne dans Python. Il est préférable de considérer les variables comme des <strong>étiquettes</strong> que vous pouvez attribuer à des valeurs. Vous pouvez également dire qu’une variable fait <strong>référence</strong> à une certaine valeur.</p>
 <blockquote>
 <div><p><strong>Exemple d’une variable comme étiquette et comme référence en Python</strong></p>
@@ -709,7 +717,7 @@ Faisons notre première erreur.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s2">&quot;aa&quot;</span><span class="p">,</span> <span class="s1">&#39;aaa&#39;</span><span class="p">,</span> <span class="s1">&#39;Bonjour!&#39;</span><span class="p">,</span> <span class="s2">&quot;11 chats&quot;</span>
 </pre></div>
 </div>
-<p>Cette flexibilité vous permet d’utiliser des guillemets et des apostrophes dans votre chaînes :</p>
+<p>Cette flexibilité vous permet d’utiliser des guillemets et des apostrophes dans votre chaîne :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Il a dit à mon ami: &quot;Le français est une langue populaire !&quot;&#39;</span>
 <span class="s2">&quot;Le footballeur Mbappe est nommé d’après son grand-père.&quot;</span>
 </pre></div>
@@ -1600,7 +1608,7 @@ By Brice Donald Abodo
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright © 2025 Boodscode237.
       <br/>
     
   </p>

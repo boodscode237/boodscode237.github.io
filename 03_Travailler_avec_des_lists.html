@@ -1,0 +1,1281 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Travailler avec des listes &#8212; Apprendre python simple</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03_Travailler_avec_des_lists';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Instructions Conditionnelles en Python" href="04_instructions_conditionelles.html" />
+    <link rel="prev" title="Introduction aux Listes" href="02_lists_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Apprendre python simple - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Apprendre python simple - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenue sur le Blog Officiel de Monthy Python With Brice 🎉
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Les bases de Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html"><strong>Python Basics : Variables, Chaîne de caractères, Nombres et Commentaires.</strong></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Les Listes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_lists_intro.html"><strong>Introduction aux Listes</strong></a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Travailler avec des listes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Travailler avec des listes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Instructions Conditionnelles en Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_instructions_conditionelles.html">Instructions Conditionnelles en Python</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/boodscode237/apprendre_python/main/?urlpath=lab/tree/docs/03_Travailler_avec_des_lists.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/boodscode237/apprendre_python/blob/main//docs/03_Travailler_avec_des_lists.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/boodscode237/apprendre_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/boodscode237/apprendre_python/issues/new?title=Issue%20on%20page%20%2F03_Travailler_avec_des_lists.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/03_Travailler_avec_des_lists.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Travailler avec des listes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcourir-une-liste-entiere-avec-une-boucle-for">Parcourir une liste entière avec une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-regard-plus-attentif-sur-les-boucles">Un regard plus attentif sur les boucles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effectuer-plus-de-travail-dans-une-boucle-for">Effectuer plus de travail dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faire-quelque-chose-apres-une-boucle-for">Faire quelque chose après une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eviter-les-erreurs-d-indentation">Éviter les erreurs d’indentation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcourir-une-liste-entiere">Parcourir une liste entière</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-examen-plus-approfondi-de-la-boucle">Un examen plus approfondi de la boucle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effectuer-des-actions-apres-une-boucle">Effectuer des actions après une boucle</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Éviter les erreurs d’indentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oublier-d-indenter">Oublier d’indenter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation-inutile">Indentation inutile</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travailler-avec-des-listes-numeriques">Travailler avec des listes numériques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliser-la-fonction-range">Utiliser la fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creer-une-liste-de-nombres-avec-range">Créer une liste de nombres avec <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistiques-simples-avec-des-listes-de-nombres">Statistiques simples avec des listes de nombres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions-de-liste">Compréhensions de liste</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travailler-avec-une-partie-de-la-liste">Travailler avec une partie de la liste</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boucler-sur-une-tranche">Boucler sur une tranche</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copier-une-liste">Copier une liste</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travailler-avec-des-tuples">Travailler avec des tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boucler-sur-un-tuple">Boucler sur un tuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecraser-un-tuple">Écraser un tuple</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resume">Résumé</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="travailler-avec-des-listes">
+<h1>Travailler avec des listes<a class="headerlink" href="#travailler-avec-des-listes" title="Link to this heading">#</a></h1>
+<section id="parcourir-une-liste-entiere-avec-une-boucle-for">
+<h2>Parcourir une liste entière avec une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#parcourir-une-liste-entiere-avec-une-boucle-for" title="Link to this heading">#</a></h2>
+<p>Vous voudrez souvent parcourir toutes les entrées d’une liste, en effectuant la même tâche avec chaque élément. Par exemple, dans un jeu, vous pourriez vouloir déplacer chaque élément à l’écran de la même quantité, ou dans une liste de nombres, vous pourriez vouloir effectuer la même opération statistique sur chaque élément. Ou peut-être voudrez-vous afficher chaque titre d’une liste d’articles sur un site web. Lorsque vous voulez faire la même action avec chaque élément d’une liste, vous pouvez utiliser la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> de Python.</p>
+<p>Disons que nous avons une liste de noms de professions et que nous voulons afficher chaque nom de la liste. Nous pourrions le faire en récupérant chaque nom de la liste individuellement, mais cette approche pourrait causer plusieurs problèmes. D’une part, ce serait répétitif de le faire avec une longue liste de noms. D’autre part, nous devrions changer notre code chaque fois que la longueur de la liste change. Une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> évite ces deux problèmes en laissant Python gérer ces aspects en interne.</p>
+<p>Utilisons une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour afficher chaque profession dans une liste :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;médecin&#39;</span><span class="p">,</span> <span class="s1">&#39;enseignant&#39;</span><span class="p">,</span> <span class="s1">&#39;commerçant&#39;</span><span class="p">]</span> <span class="c1">#</span>
+<span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span> <span class="c1">#</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">profession</span><span class="p">)</span> <span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>médecin
+enseignant
+commerçant
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous commençons par définir une liste, comme nous l’avons fait au chapitre 3. Ensuite, nous définissons une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. Cette ligne demande à Python de prendre un nom dans la liste <code class="docutils literal notranslate"><span class="pre">professions</span></code> et de l’associer à la variable <code class="docutils literal notranslate"><span class="pre">profession</span></code>. Puis, nous demandons à Python d’afficher le nom qui vient d’être assigné à <code class="docutils literal notranslate"><span class="pre">profession</span></code>. Python répète ensuite ces deux dernières lignes, une fois pour chaque nom dans la liste. Il pourrait être utile de lire ce code comme : « Pour chaque profession dans la liste des professions, affiche le nom de la profession. » La sortie est une simple impression de chaque nom dans la liste :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">médecin</span>
+<span class="n">enseignant</span>
+<span class="n">commerçant</span>
+</pre></div>
+</div>
+<section id="un-regard-plus-attentif-sur-les-boucles">
+<h3>Un regard plus attentif sur les boucles<a class="headerlink" href="#un-regard-plus-attentif-sur-les-boucles" title="Link to this heading">#</a></h3>
+<p>Le concept de boucle est important car c’est l’une des manières les plus courantes pour un ordinateur d’automatiser des tâches répétitives. Par exemple, dans une boucle simple comme celle utilisée dans <code class="docutils literal notranslate"><span class="pre">professions.py</span></code>, Python lit initialement la première ligne de la boucle :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Cette ligne demande à Python de récupérer la première valeur de la liste <code class="docutils literal notranslate"><span class="pre">professions</span></code> et de l’associer à la variable <code class="docutils literal notranslate"><span class="pre">profession</span></code>. Cette première valeur est <code class="docutils literal notranslate"><span class="pre">'médecin'</span></code>. Python lit ensuite la ligne suivante :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="n">profession</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Python affiche la valeur actuelle de <code class="docutils literal notranslate"><span class="pre">profession</span></code>, qui est toujours <code class="docutils literal notranslate"><span class="pre">'médecin'</span></code>. Comme la liste contient d’autres valeurs, Python retourne à la première ligne de la boucle :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Python récupère le nom suivant dans la liste, <code class="docutils literal notranslate"><span class="pre">'enseignant'</span></code>, et associe cette valeur à la variable <code class="docutils literal notranslate"><span class="pre">profession</span></code>. Python exécute ensuite la ligne :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="nb">print</span><span class="p">(</span><span class="n">profession</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Python affiche à nouveau la valeur actuelle de <code class="docutils literal notranslate"><span class="pre">profession</span></code>, qui est maintenant <code class="docutils literal notranslate"><span class="pre">'enseignant'</span></code>. Python répète la boucle entière une fois de plus avec la dernière valeur de la liste, <code class="docutils literal notranslate"><span class="pre">'commerçant'</span></code>. Comme il n’y a plus de valeurs dans la liste, Python passe à la ligne suivante du programme. Dans ce cas, rien ne vient après la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>, donc le programme se termine simplement.</p>
+<p>Lorsque vous utilisez des boucles pour la première fois, gardez à l’esprit que l’ensemble des étapes est répété une fois pour chaque élément de la liste, quel que soit le nombre d’éléments dans la liste. Si vous avez un million d’éléments dans votre liste, Python répète ces étapes un million de fois — et généralement très rapidement.</p>
+<p>Gardez également à l’esprit lorsque vous écrivez vos propres boucles <code class="docutils literal notranslate"><span class="pre">for</span></code> que vous pouvez choisir n’importe quel nom pour la variable temporaire qui sera associée à chaque valeur de la liste. Cependant, il est utile de choisir un nom significatif qui représente un seul élément de la liste. Par exemple, voici une bonne façon de commencer une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour une liste de chats, une liste de chiens et une liste générale d’éléments :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">chat</span> <span class="ow">in</span> <span class="n">chats</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">chien</span> <span class="ow">in</span> <span class="n">chiens</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">liste_elements</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Ces conventions de nommage peuvent vous aider à suivre l’action effectuée sur chaque élément dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. Utiliser des noms au singulier et au pluriel peut vous aider à identifier si une section de code travaille avec un seul élément de la liste ou la liste entière</p>
+</section>
+<section id="effectuer-plus-de-travail-dans-une-boucle-for">
+<h3>Effectuer plus de travail dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#effectuer-plus-de-travail-dans-une-boucle-for" title="Link to this heading">#</a></h3>
+<p>Vous pouvez faire à peu près n’importe quoi avec chaque élément dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. Reprenons l’exemple précédent en affichant un message à chaque professionnel, en le saluant :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;médecin&#39;</span><span class="p">,</span> <span class="s1">&#39;enseignant&#39;</span><span class="p">,</span> <span class="s1">&#39;commerçant&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bonjour, cher </span><span class="si">{</span><span class="n">profession</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2"> !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour, cher Médecin !
+Bonjour, cher Enseignant !
+Bonjour, cher Commerçant !
+</pre></div>
+</div>
+</div>
+</div>
+<p>La seule différence dans ce code est que nous composons un message pour chaque profession, en commençant par le nom de cette profession. La première fois dans la boucle, la valeur de <code class="docutils literal notranslate"><span class="pre">profession</span></code> est <code class="docutils literal notranslate"><span class="pre">'médecin'</span></code>, donc Python commence le premier message avec ‘Médecin’. La deuxième fois, le message commencera par ‘Enseignant’, et la troisième fois par ‘Commerçant’. La sortie montre un message personnalisé pour chaque profession dans la liste :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bonjour, cher Médecin !
+Bonjour, cher Enseignant !
+Bonjour, cher Commerçant !
+</pre></div>
+</div>
+<p>Vous pouvez également écrire autant de lignes de code que vous le souhaitez dans la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. Chaque ligne indentée suivant la ligne <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">profession</span> <span class="pre">in</span> <span class="pre">professions:</span></code> est considérée comme faisant partie de la boucle, et chaque ligne indentée est exécutée une fois pour chaque valeur dans la liste[cite: 2357]. Par conséquent, vous pouvez effectuer autant de travail que vous le souhaitez avec chaque valeur de la liste.</p>
+<p>Ajoutons une deuxième ligne à notre message, en disant à chaque professionnel que nous apprécions son travail :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;médecin&#39;</span><span class="p">,</span> <span class="s1">&#39;enseignant&#39;</span><span class="p">,</span> <span class="s1">&#39;commerçant&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bonjour, cher </span><span class="si">{</span><span class="n">profession</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2"> !&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nous apprécions beaucoup votre travail de </span><span class="si">{</span><span class="n">profession</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour, cher Médecin !
+Nous apprécions beaucoup votre travail de médecin.
+
+Bonjour, cher Enseignant !
+Nous apprécions beaucoup votre travail de enseignant.
+
+Bonjour, cher Commerçant !
+Nous apprécions beaucoup votre travail de commerçant.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comme nous avons indenté les deux appels à <code class="docutils literal notranslate"><span class="pre">print()</span></code>, chaque ligne sera exécutée une fois pour chaque profession dans la liste. Le <code class="docutils literal notranslate"><span class="pre">\n</span></code> dans le second appel <code class="docutils literal notranslate"><span class="pre">print()</span></code> insère une ligne vide après chaque passage dans la boucle. Cela crée un ensemble de messages soigneusement groupés pour chaque personne dans la liste :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bonjour, cher Médecin !
+Nous apprécions beaucoup votre travail de médecin.
+
+Bonjour, cher Enseignant !
+Nous apprécions beaucoup votre travail de enseignant.
+
+Bonjour, cher Commerçant !
+Nous apprécions beaucoup votre travail de commerçant.
+</pre></div>
+</div>
+<p>Vous pouvez utiliser autant de lignes que vous le souhaitez dans vos boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>. En pratique, vous trouverez souvent utile d’effectuer un certain nombre d’opérations différentes avec chaque élément d’une liste lorsque vous utilisez une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
+</section>
+<section id="faire-quelque-chose-apres-une-boucle-for">
+<h3>Faire quelque chose après une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#faire-quelque-chose-apres-une-boucle-for" title="Link to this heading">#</a></h3>
+<p>Que se passe-t-il une fois qu’une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> a terminé son exécution ? Généralement, vous voudrez résumer un bloc de sortie ou passer à d’autres tâches que votre programme doit accomplir.</p>
+<p>Toutes les lignes de code après la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> qui ne sont pas indentées sont exécutées une fois sans répétition. Écrivons un remerciement au groupe de professionnels dans son ensemble, en les remerciant pour leur contribution essentielle. Pour afficher ce message de groupe après que tous les messages individuels ont été imprimés, nous plaçons le message de remerciement après la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> sans indentation :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;médecin&#39;</span><span class="p">,</span> <span class="s1">&#39;enseignant&#39;</span><span class="p">,</span> <span class="s1">&#39;commerçant&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bonjour, cher </span><span class="si">{</span><span class="n">profession</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2"> !&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nous apprécions beaucoup votre travail de </span><span class="si">{</span><span class="n">profession</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Merci à tous pour votre contribution essentielle à notre communauté !&quot;</span><span class="p">)</span> <span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour, cher Médecin !
+Nous apprécions beaucoup votre travail de médecin.
+
+Bonjour, cher Enseignant !
+Nous apprécions beaucoup votre travail de enseignant.
+
+Bonjour, cher Commerçant !
+Nous apprécions beaucoup votre travail de commerçant.
+
+Merci à tous pour votre contribution essentielle à notre communauté !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les deux premiers appels à <code class="docutils literal notranslate"><span class="pre">print()</span></code> sont répétés une fois pour chaque profession dans la liste, comme vous l’avez vu précédemment. Cependant, comme la dernière ligne n’est pas indentée, elle n’est affichée qu’une seule fois :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bonjour, cher Médecin !
+Nous apprécions beaucoup votre travail de médecin.
+
+Bonjour, cher Enseignant !
+Nous apprécions beaucoup votre travail de enseignant.
+
+Bonjour, cher Commerçant !
+Nous apprécions beaucoup votre travail de commerçant.
+
+Merci à tous pour votre contribution essentielle à notre communauté !
+</pre></div>
+</div>
+<p>Lorsque vous traitez des données à l’aide d’une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>, vous constaterez que c’est un bon moyen de résumer une opération effectuée sur un ensemble de données entier.</p>
+</section>
+<section id="eviter-les-erreurs-d-indentation">
+<h3>Éviter les erreurs d’indentation<a class="headerlink" href="#eviter-les-erreurs-d-indentation" title="Link to this heading">#</a></h3>
+<p>Python utilise l’indentation pour déterminer comment une ligne, ou un groupe de lignes, est lié au reste du programme. Dans les exemples précédents, les lignes qui imprimaient des messages aux professionnels individuels faisaient partie de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> parce qu’elles étaient indentées.</p>
+<p>L’utilisation de l’indentation par Python rend le code très facile à lire. Fondamentalement, il utilise les espaces blancs pour vous forcer à écrire du code soigneusement formaté avec une structure visuelle claire. Dans les programmes Python plus longs, vous remarquerez des blocs de code indentés à quelques niveaux différents. Ces niveaux d’indentation vous aident à avoir une idée générale de l’organisation globale du programme.</p>
+<p>Lorsque vous commencez à écrire du code qui repose sur une indentation correcte, vous devrez faire attention à quelques erreurs d’indentation courantes. Par exemple, les gens indentent parfois des lignes de code qui n’ont pas besoin d’être indentées ou oublient d’indenter des lignes qui doivent l’être. Voir des exemples de ces erreurs maintenant vous aidera à les éviter à l’avenir et à les corriger lorsqu’elles apparaîtront dans vos propres programmes. Examinons certaines des erreurs d’indentation les plus courantes.</p>
+<p><strong>Oublier d’indenter</strong></p>
+<p>Indentez toujours la ligne après l’instruction <code class="docutils literal notranslate"><span class="pre">for</span></code> dans une boucle. Si vous oubliez, Python vous le rappellera:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;médecin&#39;</span><span class="p">,</span> <span class="s1">&#39;enseignant&#39;</span><span class="p">,</span> <span class="s1">&#39;commerçant&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">profession</span><span class="p">)</span> <span class="c1"># Erreur ici !</span>
+</pre></div>
+</div>
+<p>L’appel à <code class="docutils literal notranslate"><span class="pre">print()</span></code> devrait être indenté, mais il ne l’est pas. Lorsque Python s’attend à un bloc indenté et n’en trouve pas, il vous indique à quelle ligne il a rencontré un problème.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">File</span> <span class="s2">&quot;professions.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">profession</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span><span class="p">:</span> <span class="n">expected</span> <span class="n">an</span> <span class="n">indented</span> <span class="n">block</span>
+</pre></div>
+</div>
+<p>Vous pouvez généralement résoudre ce type d’erreur d’indentation en indentant la ou les lignes immédiatement après l’instruction <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
+<p><strong>Oublier d’indenter des lignes supplémentaires</strong></p>
+<p>Parfois, votre boucle s’exécutera sans aucune erreur mais ne produira pas le résultat attendu. Cela peut arriver lorsque vous essayez d’effectuer plusieurs tâches dans une boucle et que vous oubliez d’indenter certaines de ses lignes[cite: 2394].</p>
+<p>Par exemple, voici ce qui se passe lorsque nous oublions d’indenter la deuxième ligne de la boucle qui dit que nous apprécions le travail de chaque professionnel :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;médecin&#39;</span><span class="p">,</span> <span class="s1">&#39;enseignant&#39;</span><span class="p">,</span> <span class="s1">&#39;commerçant&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bonjour, cher </span><span class="si">{</span><span class="n">profession</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2"> !&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nous apprécions beaucoup votre travail de </span><span class="si">{</span><span class="n">profession</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># Erreur ici !</span>
+</pre></div>
+</div>
+<p>L’appel à <code class="docutils literal notranslate"><span class="pre">print()</span></code> est censé être indenté, mais comme Python trouve au moins une ligne indentée après l’instruction <code class="docutils literal notranslate"><span class="pre">for</span></code>, il ne signale pas d’erreur. Par conséquent, le premier appel <code class="docutils literal notranslate"><span class="pre">print()</span></code> est exécuté une fois pour chaque nom dans la liste car il est indenté. Le deuxième appel <code class="docutils literal notranslate"><span class="pre">print()</span></code> n’est pas indenté, il n’est donc exécuté qu’une seule fois après la fin de la boucle. Comme la valeur finale associée à <code class="docutils literal notranslate"><span class="pre">profession</span></code> est <code class="docutils literal notranslate"><span class="pre">'commerçant'</span></code>, c’est le seul qui reçoit le message “Nous apprécions beaucoup…” :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bonjour, cher Médecin !
+Bonjour, cher Enseignant !
+Bonjour, cher Commerçant !
+Nous apprécions beaucoup votre travail de commerçant.
+</pre></div>
+</div>
+<p>C’est une erreur logique. La syntaxe est du code Python valide, mais le code ne produit pas le résultat souhaité car un problème survient dans sa logique[cite: 2401]. Si vous vous attendez à voir une certaine action répétée une fois pour chaque élément d’une liste et qu’elle n’est exécutée qu’une seule fois, déterminez si vous devez simplement indenter une ligne ou un groupe de lignes.</p>
+<p><strong>Indenter inutilement</strong></p>
+<p>Si vous indentez accidentellement une ligne qui n’a pas besoin d’être indentée, Python vous informe de l’indentation inattendue :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># salut_monde.py</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Salut le monde Python !&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="c1"># Erreur ici !</span>
+</pre></div>
+</div>
+<p>Nous n’avons pas besoin d’indenter l’appel <code class="docutils literal notranslate"><span class="pre">print()</span></code>, car il ne fait pas partie d’une boucle ; par conséquent, Python signale cette erreur :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">File</span> <span class="s2">&quot;salut_monde.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span><span class="p">:</span> <span class="n">unexpected</span> <span class="n">indent</span>
+</pre></div>
+</div>
+<p>Vous pouvez éviter les erreurs d’indentation inattendues en n’indentant que lorsque vous avez une raison spécifique de le faire. Dans les programmes que vous écrivez à ce stade, les seules lignes que vous devriez indenter sont les actions que vous voulez répéter pour chaque élément dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>[cite: 2406].</p>
+<p><strong>Indenter inutilement après la boucle</strong></p>
+<p>Si vous indentez accidentellement du code qui devrait s’exécuter après la fin d’une boucle, ce code sera répété une fois pour chaque élément de la liste. Parfois, cela incite Python à signaler une erreur, mais souvent cela entraînera une erreur logique[cite: 2408].</p>
+<p>Par exemple, voyons ce qui se passe lorsque nous indentons accidentellement la ligne qui remerciait les professionnels en groupe :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># professions.py</span>
+<span class="n">professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;médecin&#39;</span><span class="p">,</span> <span class="s1">&#39;enseignant&#39;</span><span class="p">,</span> <span class="s1">&#39;commerçant&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bonjour, cher </span><span class="si">{</span><span class="n">profession</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2"> !&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nous apprécions beaucoup votre travail de </span><span class="si">{</span><span class="n">profession</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Merci à tous pour votre contribution essentielle à notre communauté !&quot;</span><span class="p">)</span> <span class="c1"># Erreur ici !</span>
+</pre></div>
+</div>
+<p>Parce que la ligne est indentée, elle est affichée une fois pour chaque personne dans la liste, comme montré ici :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Bonjour, cher Médecin !
+Nous apprécions beaucoup votre travail de médecin.
+Merci à tous pour votre contribution essentielle à notre communauté !
+
+Bonjour, cher Enseignant !
+Nous apprécions beaucoup votre travail de enseignant.
+Merci à tous pour votre contribution essentielle à notre communauté !
+
+Bonjour, cher Commerçant !
+Nous apprécions beaucoup votre travail de commerçant.
+Merci à tous pour votre contribution essentielle à notre communauté !
+
+</pre></div>
+</div>
+<p>C’est une autre erreur logique, similaire à celle de la section “Oublier d’indenter des lignes supplémentaires”. Comme Python ne sait pas ce que vous essayez d’accomplir avec votre code, il exécutera tout code écrit avec une syntaxe valide. Si une action est répétée plusieurs fois alors qu’elle ne devrait être exécutée qu’une seule fois, vous devez probablement désindenter le code de cette action[cite: 2415].</p>
+<p><strong>Oublier les deux-points</strong></p>
+<p>Les deux-points (<code class="docutils literal notranslate"><span class="pre">:</span></code>) à la fin d’une instruction <code class="docutils literal notranslate"><span class="pre">for</span></code> indiquent à Python d’interpréter la ligne suivante comme le début d’une boucle[cite: 2416].</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># professions.py</span>
+<span class="n">professions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;médecin&#39;</span><span class="p">,</span> <span class="s1">&#39;enseignant&#39;</span><span class="p">,</span> <span class="s1">&#39;commerçant&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">profession</span> <span class="ow">in</span> <span class="n">professions</span> <span class="c1"># Erreur ici !</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">profession</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Si vous oubliez accidentellement les deux-points, comme montré ici, vous obtiendrez une erreur de syntaxe car Python ne sait pas ce que vous essayez de faire. Bien que ce soit une erreur facile à corriger, ce n’est pas toujours une erreur facile à trouver. Vous seriez surpris du temps que les programmeurs passent à traquer des erreurs d’un seul caractère comme celle-ci[cite: 2419].</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="parcourir-une-liste-entiere">
+<h2>Parcourir une liste entière<a class="headerlink" href="#parcourir-une-liste-entiere" title="Link to this heading">#</a></h2>
+<p>Très souvent, vous devrez exécuter la même action sur chaque élément d’une liste. Par exemple, vous voudrez peut-être afficher chaque élément d’une liste de fruits ou envoyer un message personnalisé à chaque ami d’une liste. Lorsque vous souhaitez faire cela, vous pouvez utiliser la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> en Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;banane&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pomme
+banane
+orange
+</pre></div>
+</div>
+</div>
+</div>
+<section id="un-examen-plus-approfondi-de-la-boucle">
+<h3>Un examen plus approfondi de la boucle<a class="headerlink" href="#un-examen-plus-approfondi-de-la-boucle" title="Link to this heading">#</a></h3>
+<p>Dans cet exemple, la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> prend chaque élément de la liste <code class="docutils literal notranslate"><span class="pre">fruits</span></code> et le stocke dans la variable <code class="docutils literal notranslate"><span class="pre">fruit</span></code>. Ensuite, Python exécute les actions que vous avez spécifiées pour chaque fruit. Ce processus se poursuit jusqu’à ce que tous les éléments de la liste aient été parcourus.</p>
+<p>Nous pouvons améliorer notre boucle en faisant plus qu’afficher chaque élément. Ajoutons une phrase personnalisée pour chaque ami dans notre liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amis</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Marie&#39;</span><span class="p">,</span> <span class="s1">&#39;Jean&#39;</span><span class="p">,</span> <span class="s1">&#39;Sophie&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ami</span> <span class="ow">in</span> <span class="n">amis</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Salut </span><span class="si">{</span><span class="n">ami</span><span class="si">}</span><span class="s2">, comment vas-tu aujourd&#39;hui ?&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;C&#39;était génial de te voir la semaine dernière, </span><span class="si">{</span><span class="n">ami</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Salut Marie, comment vas-tu aujourd&#39;hui ?
+C&#39;était génial de te voir la semaine dernière, Marie.
+
+Salut Jean, comment vas-tu aujourd&#39;hui ?
+C&#39;était génial de te voir la semaine dernière, Jean.
+
+Salut Sophie, comment vas-tu aujourd&#39;hui ?
+C&#39;était génial de te voir la semaine dernière, Sophie.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans cet exemple, nous faisons deux actions pour chaque ami dans la liste: nous affichons une salutation et un commentaire personnel. Voici ce qui sera affiché:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Salut Marie, comment vas-tu aujourd&#39;hui ?
+C&#39;était génial de te voir la semaine dernière, Marie.
+
+Salut Jean, comment vas-tu aujourd&#39;hui ?
+C&#39;était génial de te voir la semaine dernière, Jean.
+
+Salut Sophie, comment vas-tu aujourd&#39;hui ?
+C&#39;était génial de te voir la semaine dernière, Sophie.
+</pre></div>
+</div>
+</section>
+<section id="effectuer-des-actions-apres-une-boucle">
+<h3>Effectuer des actions après une boucle<a class="headerlink" href="#effectuer-des-actions-apres-une-boucle" title="Link to this heading">#</a></h3>
+<p>Une fois la boucle terminée, Python continue d’exécuter les instructions suivantes. Vous pouvez donc ajouter des actions à effectuer après que la boucle a parcouru tous les éléments de la liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amis</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Marie&#39;</span><span class="p">,</span> <span class="s1">&#39;Jean&#39;</span><span class="p">,</span> <span class="s1">&#39;Sophie&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ami</span> <span class="ow">in</span> <span class="n">amis</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Salut </span><span class="si">{</span><span class="n">ami</span><span class="si">}</span><span class="s2">, comment vas-tu aujourd&#39;hui ?&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Merci à vous tous, chers amis !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Salut Marie, comment vas-tu aujourd&#39;hui ?
+Salut Jean, comment vas-tu aujourd&#39;hui ?
+Salut Sophie, comment vas-tu aujourd&#39;hui ?
+
+Merci à vous tous, chers amis !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dans cet exemple, après avoir salué chaque ami, Python affiche un message de remerciement.</p>
+</section>
+</section>
+<section id="id1">
+<h2>Éviter les erreurs d’indentation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>En Python, l’indentation est très importante. Elle indique à Python quelles instructions font partie de la boucle et lesquelles sont en dehors. Si vous oubliez d’indenter, Python générera une erreur d’indentation. Voici quelques erreurs communes d’indentation et comment les éviter.</p>
+<section id="oublier-d-indenter">
+<h3>Oublier d’indenter<a class="headerlink" href="#oublier-d-indenter" title="Link to this heading">#</a></h3>
+<p>Si vous oubliez d’indenter les lignes dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>, Python génère une erreur comme celle-ci:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amis</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Marie&#39;</span><span class="p">,</span> <span class="s1">&#39;Jean&#39;</span><span class="p">,</span> <span class="s1">&#39;Sophie&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ami</span> <span class="ow">in</span> <span class="n">amis</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ami</span><span class="p">)</span>  <span class="c1"># Erreur : la ligne doit être indentée</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ami</span><span class="p">)</span>  <span class="c1"># Erreur : la ligne doit être indentée</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indentation-inutile">
+<h3>Indentation inutile<a class="headerlink" href="#indentation-inutile" title="Link to this heading">#</a></h3>
+<p>Si vous indentez une ligne qui ne devrait pas l’être, Python génère une autre erreur d’indentation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Bonjour à tous !&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># Indentation inutile ici</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-4-7a64cace665f&gt;&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># Indentation inutile ici</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="travailler-avec-des-listes-numeriques">
+<h2>Travailler avec des listes numériques<a class="headerlink" href="#travailler-avec-des-listes-numeriques" title="Link to this heading">#</a></h2>
+<p>Python vous permet de générer facilement une liste de nombres, ce qui peut être utile dans de nombreux cas. La fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code> facilite la génération de nombres.</p>
+<section id="utiliser-la-fonction-range">
+<h3>Utiliser la fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#utiliser-la-fonction-range" title="Link to this heading">#</a></h3>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code> génère une série de nombres. Par exemple, vous pouvez utiliser <code class="docutils literal notranslate"><span class="pre">range()</span></code> pour afficher les nombres de 1 à 5.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="creer-une-liste-de-nombres-avec-range">
+<h3>Créer une liste de nombres avec <code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#creer-une-liste-de-nombres-avec-range" title="Link to this heading">#</a></h3>
+<p>Si vous voulez conserver ces nombres dans une liste, vous pouvez utiliser la fonction <code class="docutils literal notranslate"><span class="pre">list()</span></code> pour convertir le résultat de <code class="docutils literal notranslate"><span class="pre">range()</span></code> en une liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="statistiques-simples-avec-des-listes-de-nombres">
+<h3>Statistiques simples avec des listes de nombres<a class="headerlink" href="#statistiques-simples-avec-des-listes-de-nombres" title="Link to this heading">#</a></h3>
+<p>Vous pouvez facilement effectuer des calculs statistiques sur une liste de nombres, comme trouver le minimum, le maximum ou la somme des nombres dans une liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">nombres</span><span class="p">))</span>  <span class="c1"># Affiche le plus petit nombre</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">nombres</span><span class="p">))</span>  <span class="c1"># Affiche le plus grand nombre</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">nombres</span><span class="p">))</span>  <span class="c1"># Affiche la somme des nombres</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+5
+15
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="comprehensions-de-liste">
+<h3>Compréhensions de liste<a class="headerlink" href="#comprehensions-de-liste" title="Link to this heading">#</a></h3>
+<p>Une compréhension de liste permet de générer une liste en une seule ligne de code, ce qui est souvent plus concis.</p>
+<p>Exemple : générer les carrés des nombres de 1 à 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carres</span> <span class="o">=</span> <span class="p">[</span><span class="n">nombre</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">24</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">carres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[121, 144, 169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="travailler-avec-une-partie-de-la-liste">
+<h2>Travailler avec une partie de la liste<a class="headerlink" href="#travailler-avec-une-partie-de-la-liste" title="Link to this heading">#</a></h2>
+<p>Il est possible de travailler uniquement avec une partie d’une liste, en créant une <strong>tranche</strong> (slicing). Vous pouvez choisir une sous-liste en spécifiant les indices de début et de fin.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;banane&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">,</span> <span class="s1">&#39;mangue&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># Affiche les éléments de l&#39;indice 1 à 3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;banane&#39;, &#39;orange&#39;, &#39;kiwi&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="boucler-sur-une-tranche">
+<h3>Boucler sur une tranche<a class="headerlink" href="#boucler-sur-une-tranche" title="Link to this heading">#</a></h3>
+<p>Vous pouvez également boucler sur une tranche spécifique d’une liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;banane&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span><span class="p">,</span> <span class="s1">&#39;mangue&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pomme
+banane
+orange
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="copier-une-liste">
+<h2>Copier une liste<a class="headerlink" href="#copier-une-liste" title="Link to this heading">#</a></h2>
+<p>Si vous souhaitez créer une copie d’une liste, vous pouvez utiliser la syntaxe des tranches sans spécifier d’indice de début ou de fin.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mes_fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pomme&#39;</span><span class="p">,</span> <span class="s1">&#39;banane&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+<span class="n">copie_fruits</span> <span class="o">=</span> <span class="n">mes_fruits</span><span class="p">[:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">copie_fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;pomme&#39;, &#39;banane&#39;, &#39;orange&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mes_fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;kiwi&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mes_fruits</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">copie_fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;pomme&#39;, &#39;banane&#39;, &#39;orange&#39;, &#39;kiwi&#39;]
+[&#39;pomme&#39;, &#39;banane&#39;, &#39;orange&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cop_fruits</span> <span class="o">=</span> <span class="n">mes_fruits</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cop_fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;pomme&#39;, &#39;banane&#39;, &#39;orange&#39;, &#39;kiwi&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mes_fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;mangue&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mes_fruits</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cop_fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;pomme&#39;, &#39;banane&#39;, &#39;orange&#39;, &#39;kiwi&#39;, &#39;mangue&#39;]
+[&#39;pomme&#39;, &#39;banane&#39;, &#39;orange&#39;, &#39;kiwi&#39;, &#39;mangue&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="travailler-avec-des-tuples">
+<h2>Travailler avec des tuples<a class="headerlink" href="#travailler-avec-des-tuples" title="Link to this heading">#</a></h2>
+<p>Les tuples ressemblent beaucoup aux listes, sauf qu’ils sont <strong>immuables</strong>, c’est-à-dire que vous ne pouvez pas modifier les éléments une fois qu’ils sont définis. Vous pouvez définir un tuple en utilisant des parenthèses au lieu de crochets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dimensions</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+50
+</pre></div>
+</div>
+</div>
+</div>
+<section id="boucler-sur-un-tuple">
+<h3>Boucler sur un tuple<a class="headerlink" href="#boucler-sur-un-tuple" title="Link to this heading">#</a></h3>
+<p>Vous pouvez utiliser une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> pour parcourir les éléments d’un tuple.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dimensions</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dimension</span> <span class="ow">in</span> <span class="n">dimensions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dimension</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+50
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ecraser-un-tuple">
+<h3>Écraser un tuple<a class="headerlink" href="#ecraser-un-tuple" title="Link to this heading">#</a></h3>
+<p>Bien que vous ne puissiez pas modifier un tuple, vous pouvez le redéfinir entièrement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dimensions</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">dimensions</span> <span class="o">=</span> <span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(400, 100)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="resume">
+<h2>Résumé<a class="headerlink" href="#resume" title="Link to this heading">#</a></h2>
+<p>Nous avons appris comment :</p>
+<ul class="simple">
+<li><p>Parcourir une liste à l’aide d’une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p></li>
+<li><p>Manipuler des listes de nombres.</p></li>
+<li><p>Créer des tranches de listes et travailler avec des sous-listes.</p></li>
+<li><p>Utiliser des tuples pour stocker des ensembles de valeurs immuables.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "boodscode237/apprendre_python",
+            ref: "main/",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_lists_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Introduction aux Listes</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_instructions_conditionelles.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Instructions Conditionnelles en Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcourir-une-liste-entiere-avec-une-boucle-for">Parcourir une liste entière avec une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-regard-plus-attentif-sur-les-boucles">Un regard plus attentif sur les boucles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effectuer-plus-de-travail-dans-une-boucle-for">Effectuer plus de travail dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faire-quelque-chose-apres-une-boucle-for">Faire quelque chose après une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eviter-les-erreurs-d-indentation">Éviter les erreurs d’indentation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parcourir-une-liste-entiere">Parcourir une liste entière</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-examen-plus-approfondi-de-la-boucle">Un examen plus approfondi de la boucle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#effectuer-des-actions-apres-une-boucle">Effectuer des actions après une boucle</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Éviter les erreurs d’indentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oublier-d-indenter">Oublier d’indenter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation-inutile">Indentation inutile</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travailler-avec-des-listes-numeriques">Travailler avec des listes numériques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliser-la-fonction-range">Utiliser la fonction <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creer-une-liste-de-nombres-avec-range">Créer une liste de nombres avec <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistiques-simples-avec-des-listes-de-nombres">Statistiques simples avec des listes de nombres</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comprehensions-de-liste">Compréhensions de liste</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travailler-avec-une-partie-de-la-liste">Travailler avec une partie de la liste</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boucler-sur-une-tranche">Boucler sur une tranche</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copier-une-liste">Copier une liste</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#travailler-avec-des-tuples">Travailler avec des tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boucler-sur-un-tuple">Boucler sur un tuple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecraser-un-tuple">Écraser un tuple</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resume">Résumé</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brice Donald Abodo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright © 2025 Boodscode237.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

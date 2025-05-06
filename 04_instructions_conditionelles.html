@@ -1,0 +1,1954 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Instructions Conditionnelles en Python &#8212; Apprendre python simple</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_instructions_conditionelles';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Travailler avec des listes" href="03_Travailler_avec_des_lists.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Apprendre python simple - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="Apprendre python simple - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenue sur le Blog Officiel de Monthy Python With Brice 🎉
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Les bases de Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_basics.html"><strong>Python Basics : Variables, Chaîne de caractères, Nombres et Commentaires.</strong></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Les Listes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_lists_intro.html"><strong>Introduction aux Listes</strong></a></li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Travailler avec des listes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_Travailler_avec_des_lists.html">Travailler avec des listes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Instructions Conditionnelles en Python</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Instructions Conditionnelles en Python</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/boodscode237/apprendre_python/main/?urlpath=lab/tree/docs/04_instructions_conditionelles.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/boodscode237/apprendre_python/blob/main//docs/04_instructions_conditionelles.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/boodscode237/apprendre_python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/boodscode237/apprendre_python/issues/new?title=Issue%20on%20page%20%2F04_instructions_conditionelles.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04_instructions_conditionelles.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Instructions Conditionnelles en Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-des-matieres">Table des Matières</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-simple">Un Exemple Simple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-conditionnels">Tests Conditionnels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-de-l-egalite">Vérification de l’Égalité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ignorer-la-casse-lors-de-la-verification-de-l-egalite">Ignorer la Casse lors de la Vérification de l’Égalité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-de-l-inegalite">Vérification de l’Inégalité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaisons-numeriques">Comparaisons Numériques</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-de-conditions-multiples">Vérification de Conditions Multiples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verifier-si-une-valeur-est-dans-une-liste">Vérifier si une Valeur est dans une Liste</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verifier-si-une-valeur-n-est-pas-dans-une-liste">Vérifier si une Valeur n’est pas dans une Liste</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-booleennes">Expressions Booléennes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-if">Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-if-simples">Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> Simples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-if-else">Instructions <code class="docutils literal notranslate"><span class="pre">if-else</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-chaine-if-elif-else">La Chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-de-plusieurs-blocs-elif">Utilisation de Plusieurs Blocs <code class="docutils literal notranslate"><span class="pre">elif</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#omission-du-bloc-else">Omission du Bloc <code class="docutils literal notranslate"><span class="pre">else</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tester-plusieurs-conditions">Tester Plusieurs Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-des-instructions-if-avec-les-listes">Utilisation des Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> avec les Listes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-des-elements-speciaux">Vérification des Éléments Spéciaux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verifier-qu-une-liste-n-est-pas-vide">Vérifier qu’une Liste n’est pas Vide</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-de-plusieurs-listes">Utilisation de Plusieurs Listes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-de-vos-instructions-if">Style de Vos Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercices">Exercices</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-plus-de-tests-conditionnels">Exercice 2 : Plus de Tests Conditionnels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3-couleurs-d-aliens-1">Exercice 3 : Couleurs d’Aliens #1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4-couleurs-d-aliens-2">Exercice 4 : Couleurs d’Aliens #2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5-couleurs-d-aliens-3">Exercice 5 : Couleurs d’Aliens #3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6-etapes-de-la-vie">Exercice 6 : Étapes de la Vie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7-fruit-prefere">Exercice 7 : Fruit Préféré</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-8-bonjour-admin">Exercice 8 : Bonjour Admin</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-9-pas-d-utilisateurs">Exercice 9 : Pas d’Utilisateurs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-10-verification-des-noms-d-utilisateur">Exercice 10 : Vérification des Noms d’Utilisateur</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-11-nombres-ordinaux">Exercice 11 : Nombres Ordinaux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-12-style-des-instructions-if">Exercice 12 : Style des instructions if</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-13-vos-idees">Exercice 13 : Vos Idées</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections-des-exercices">Corrections des Exercices</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-1-2-tests-conditionnels">Correction 1 &amp; 2 : Tests Conditionnels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-3-couleurs-d-aliens-1">Correction 3 : Couleurs d’Aliens #1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-4-couleurs-d-aliens-2">Correction 4 : Couleurs d’Aliens #2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-5-couleurs-d-aliens-3">Correction 5 : Couleurs d’Aliens #3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-6-etapes-de-la-vie">Correction 6 : Étapes de la Vie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-7-fruit-prefere-adapte-aux-plats-camerounais">Correction 7 : Fruit Préféré (Adapté aux plats camerounais)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-8-bonjour-admin">Correction 8 : Bonjour Admin</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-9-pas-d-utilisateurs">Correction 9 : Pas d’Utilisateurs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-10-verification-des-noms-d-utilisateur">Correction 10 : Vérification des Noms d’Utilisateur</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-11-nombres-ordinaux-francais">Correction 11 : Nombres Ordinaux (Français)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-12-style-des-instructions-if">Correction 12 : Style des instructions if</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-13-vos-idees">Correction 13 : Vos Idées</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="instructions-conditionnelles-en-python">
+<h1>Instructions Conditionnelles en Python<a class="headerlink" href="#instructions-conditionnelles-en-python" title="Link to this heading">#</a></h1>
+<p>Ce notebook couvre les instructions conditionnelles en Python, notamment les tests d’égalité et d’inégalité, les vérifications de conditions multiples, les expressions booléennes, et l’utilisation des listes avec des instructions <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<section id="table-des-matieres">
+<h2>Table des Matières<a class="headerlink" href="#table-des-matieres" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#1"><span class="xref myst">Tests Conditionnels</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#1.1"><span class="xref myst">Vérification d’Égalité</span></a></p></li>
+<li><p><a class="reference internal" href="#1.2"><span class="xref myst">Ignorer la Casse lors de la Vérification d’Égalité</span></a></p></li>
+<li><p><a class="reference internal" href="#1.3"><span class="xref myst">Vérification d’Inégalité</span></a></p></li>
+<li><p><a class="reference internal" href="#1.4"><span class="xref myst">Comparaisons Numériques</span></a></p></li>
+<li><p><a class="reference internal" href="#1.5"><span class="xref myst">Vérification de Conditions Multiples</span></a></p></li>
+<li><p><a class="reference internal" href="#1.6"><span class="xref myst">Vérifier si une Valeur est dans une Liste</span></a></p></li>
+<li><p><a class="reference internal" href="#1.7"><span class="xref myst">Expressions Booléennes</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#2"><span class="xref myst">Instructions If</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#2.1"><span class="xref myst">Instructions if-else</span></a></p></li>
+<li><p><a class="reference internal" href="#2.2"><span class="xref myst">La Chaîne if-elif-else</span></a></p></li>
+<li><p><a class="reference internal" href="#2.3"><span class="xref myst">Utiliser Plusieurs Blocs elif</span></a></p></li>
+<li><p><a class="reference internal" href="#2.4"><span class="xref myst">Omettre le Bloc else</span></a></p></li>
+<li><p><a class="reference internal" href="#2.5"><span class="xref myst">Tester Plusieurs Conditions</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#3"><span class="xref myst">Utilisation des Instructions if avec les Listes</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#3.1"><span class="xref myst">Vérification d’Éléments Spéciaux</span></a></p></li>
+<li><p><a class="reference internal" href="#3.2"><span class="xref myst">Vérifier qu’une Liste n’est pas Vide</span></a></p></li>
+<li><p><a class="reference internal" href="#3.3"><span class="xref myst">Utiliser Plusieurs Listes</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#4"><span class="xref myst">Exercices</span></a></p></li>
+</ol>
+<p>La programmation implique souvent d’examiner un ensemble de conditions et de décider quelle action entreprendre en fonction de ces conditions. L’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> de Python vous permet d’examiner l’état actuel d’un programme et de répondre de manière appropriée à cet état.</p>
+<p>Dans ce chapitre, vous apprendrez à écrire des tests conditionnels, qui vous permettent de vérifier n’importe quelle condition d’intérêt. Vous apprendrez à écrire des instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> simples, et vous apprendrez comment créer une série plus complexe d’instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> pour identifier quand les conditions exactes que vous souhaitez sont présentes. Vous appliquerez ensuite ce concept aux listes, ce qui vous permettra d’écrire une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> qui traite la plupart des éléments d’une liste d’une manière, mais gère certains éléments avec des valeurs spécifiques d’une manière différente.</p>
+<section id="un-exemple-simple">
+<h3>Un Exemple Simple<a class="headerlink" href="#un-exemple-simple" title="Link to this heading">#</a></h3>
+<p>L’exemple court suivant montre comment les tests <code class="docutils literal notranslate"><span class="pre">if</span></code> vous permettent de répondre correctement à des situations spéciales. Imaginez que vous ayez une liste de marques de voitures et que vous vouliez imprimer le nom de chaque voiture. Les noms de voitures sont des noms propres, donc les noms de la plupart des voitures doivent être imprimés avec la première lettre en majuscule (casse titre). Cependant, la valeur ‘toyota’, très courante au Cameroun, devrait être imprimée en majuscules. Le code suivant parcourt une liste de noms de voitures et recherche la valeur ‘toyota’. Chaque fois que la valeur est ‘toyota’, elle est imprimée en majuscules au lieu de la casse titre:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voitures</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;toyota&#39;</span><span class="p">,</span> <span class="s1">&#39;mercedes&#39;</span><span class="p">,</span> <span class="s1">&#39;hyundai&#39;</span><span class="p">]</span> <span class="c1"># Liste de voitures, certaines communes au Cameroun</span>
+<span class="k">for</span> <span class="n">voiture</span> <span class="ow">in</span> <span class="n">voitures</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">voiture</span> <span class="o">==</span> <span class="s1">&#39;toyota&#39;</span><span class="p">:</span> <span class="c1"># Vérifie si la voiture est &#39;toyota&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">voiture</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span> <span class="c1"># Imprime en MAJUSCULES</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">voiture</span><span class="o">.</span><span class="n">title</span><span class="p">())</span> <span class="c1"># Imprime avec la première lettre en majuscule</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Audi
+TOYOTA
+Mercedes
+Hyundai
+</pre></div>
+</div>
+</div>
+</div>
+<p>La boucle dans cet exemple vérifie d’abord si la valeur actuelle de <code class="docutils literal notranslate"><span class="pre">voiture</span></code> est ‘toyota’. Si c’est le cas, la valeur est imprimée en majuscules. Si la valeur de <code class="docutils literal notranslate"><span class="pre">voiture</span></code> est autre que ‘toyota’, elle est imprimée en casse titre:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Audi</span>
+<span class="n">TOYOTA</span>
+<span class="n">Mercedes</span>
+<span class="n">Hyundai</span>
+</pre></div>
+</div>
+<p>Cet exemple combine un certain nombre de concepts que vous apprendrez dans ce chapitre. Commençons par examiner les types de tests que vous pouvez utiliser pour examiner les conditions de votre programme.</p>
+</section>
+<section id="tests-conditionnels">
+<h3>Tests Conditionnels<a class="headerlink" href="#tests-conditionnels" title="Link to this heading">#</a></h3>
+<p>Au cœur de chaque instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> se trouve une expression qui peut être évaluée comme <code class="docutils literal notranslate"><span class="pre">True</span></code> (Vrai) ou <code class="docutils literal notranslate"><span class="pre">False</span></code> (Faux) et est appelée un test conditionnel. Python utilise les valeurs <code class="docutils literal notranslate"><span class="pre">True</span></code> et <code class="docutils literal notranslate"><span class="pre">False</span></code> pour décider si le code dans une instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> doit être exécuté. Si un test conditionnel est évalué à <code class="docutils literal notranslate"><span class="pre">True</span></code>, Python exécute le code suivant l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>. Si le test est évalué à <code class="docutils literal notranslate"><span class="pre">False</span></code>, Python ignore le code suivant l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<section id="verification-de-l-egalite">
+<h4>Vérification de l’Égalité<a class="headerlink" href="#verification-de-l-egalite" title="Link to this heading">#</a></h4>
+<p>La plupart des tests conditionnels comparent la valeur actuelle d’une variable à une valeur spécifique d’intérêt. Le test conditionnel le plus simple vérifie si la valeur d’une variable est égale à la valeur d’intérêt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voiture</span> <span class="o">=</span> <span class="s1">&#39;toyota&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">voiture</span> <span class="o">==</span> <span class="s1">&#39;toyota&#39;</span><span class="p">)</span> <span class="c1"># Est-ce que voiture est égale à &#39;toyota&#39; ?</span>
+<span class="c1"># True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>La première ligne définit la valeur de <code class="docutils literal notranslate"><span class="pre">voiture</span></code> à ‘toyota’ en utilisant un seul signe égal. La deuxième ligne vérifie si la valeur de <code class="docutils literal notranslate"><span class="pre">voiture</span></code> est ‘toyota’ en utilisant un double signe égal (<code class="docutils literal notranslate"><span class="pre">==</span></code>). Cet opérateur d’égalité renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si les valeurs à gauche et à droite de l’opérateur correspondent, et <code class="docutils literal notranslate"><span class="pre">False</span></code> si elles ne correspondent pas. Les valeurs dans cet exemple correspondent, donc Python renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Lorsque la valeur de <code class="docutils literal notranslate"><span class="pre">voiture</span></code> est autre que ‘toyota’, ce test renvoie <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voiture</span> <span class="o">=</span> <span class="s1">&#39;mitsubishi&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">voiture</span> <span class="o">==</span> <span class="s1">&#39;toyota&#39;</span><span class="p">)</span> <span class="c1"># Est-ce que voiture est égale à &#39;toyota&#39; ?</span>
+<span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Un seul signe égal (<code class="docutils literal notranslate"><span class="pre">=</span></code>) est une instruction d’affectation (par exemple, “Définir la valeur de <code class="docutils literal notranslate"><span class="pre">voiture</span></code> à ‘mitsubishi’”). Un double signe égal (<code class="docutils literal notranslate"><span class="pre">==</span></code>) pose une question (“La valeur de <code class="docutils literal notranslate"><span class="pre">voiture</span></code> est-elle égale à ‘toyota’ ?”).</p>
+</section>
+<section id="ignorer-la-casse-lors-de-la-verification-de-l-egalite">
+<h4>Ignorer la Casse lors de la Vérification de l’Égalité<a class="headerlink" href="#ignorer-la-casse-lors-de-la-verification-de-l-egalite" title="Link to this heading">#</a></h4>
+<p>Le test d’égalité est sensible à la casse en Python. Par exemple, deux valeurs avec une capitalisation différente ne sont pas considérées comme égales :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voiture</span> <span class="o">=</span> <span class="s1">&#39;Toyota&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">voiture</span> <span class="o">==</span> <span class="s1">&#39;toyota&#39;</span><span class="p">)</span>
+<span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si la casse importe, ce comportement est avantageux. Mais si la casse n’importe pas et que vous voulez simplement tester la valeur d’une variable, vous pouvez convertir la valeur de la variable en minuscules avant de faire la comparaison:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voiture</span> <span class="o">=</span> <span class="s1">&#39;Toyota&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">voiture</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;toyota&#39;</span><span class="p">)</span> <span class="c1"># Convertit &#39;Toyota&#39; en &#39;toyota&#39; avant de comparer</span>
+<span class="c1"># True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ce test renverrait <code class="docutils literal notranslate"><span class="pre">True</span></code> quelle que soit la façon dont la valeur ‘Toyota’ est formatée, car le test est désormais insensible à la casse. La méthode <code class="docutils literal notranslate"><span class="pre">lower()</span></code> ne modifie pas la valeur initialement stockée dans <code class="docutils literal notranslate"><span class="pre">voiture</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voiture</span> <span class="o">=</span> <span class="s1">&#39;Toyota&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">voiture</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;toyota&#39;</span><span class="p">)</span>
+<span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">voiture</span><span class="p">)</span> <span class="c1"># La variable originale n&#39;est pas modifiée</span>
+<span class="c1"># Toyota</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+Toyota
+</pre></div>
+</div>
+</div>
+</div>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">lower()</span></code> est particulièrement utile pour stocker des données. Souvent, vous ne voudrez pas faire confiance à la capitalisation fournie par vos utilisateurs, vous convertirez donc les chaînes en minuscules avant de les stocker.</p>
+</section>
+<section id="verification-de-l-inegalite">
+<h4>Vérification de l’Inégalité<a class="headerlink" href="#verification-de-l-inegalite" title="Link to this heading">#</a></h4>
+<p>Lorsque vous voulez déterminer si deux valeurs ne sont <em>pas</em> égales, vous pouvez combiner un point d’exclamation et un signe égal (<code class="docutils literal notranslate"><span class="pre">!=</span></code>). Le point d’exclamation représente la négation (<code class="docutils literal notranslate"><span class="pre">not</span></code>).</p>
+<p>Utilisons une instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> pour examiner comment utiliser l’opérateur d’inégalité. Stockons un plat préféré dans une variable, puis imprimons un message si la personne n’a pas choisi ‘fufu’ (un plat populaire en Afrique de l’Ouest et Centrale):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plat_prefere</span> <span class="o">=</span> <span class="s1">&#39;ndole&#39;</span> <span class="c1"># Un plat camerounais populaire</span>
+<span class="k">if</span> <span class="n">plat_prefere</span> <span class="o">!=</span> <span class="s1">&#39;fufu&#39;</span><span class="p">:</span> <span class="c1"># Vérifie si le plat préféré N&#39;EST PAS &#39;fufu&#39;</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tiens bon le fufu !&quot;</span><span class="p">)</span> <span class="c1"># Message si ce n&#39;est pas fufu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tiens bon le fufu !
+</pre></div>
+</div>
+</div>
+</div>
+<p>La ligne avec <code class="docutils literal notranslate"><span class="pre">if</span></code> compare la valeur de <code class="docutils literal notranslate"><span class="pre">plat_prefere</span></code> à la valeur ‘fufu’. Si ces deux valeurs ne correspondent pas, Python renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> et exécute le code indenté suivant l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>. Si les deux valeurs correspondent, Python renvoie <code class="docutils literal notranslate"><span class="pre">False</span></code> et n’exécute pas le code suivant l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<p>Comme la valeur de <code class="docutils literal notranslate"><span class="pre">plat_prefere</span></code> n’est pas ‘fufu’, la fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code> est exécutée:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Tiens bon le fufu !
+</pre></div>
+</div>
+</section>
+<section id="comparaisons-numeriques">
+<h4>Comparaisons Numériques<a class="headerlink" href="#comparaisons-numeriques" title="Link to this heading">#</a></h4>
+<p>Tester des valeurs numériques est assez simple. Par exemple, le code suivant vérifie si une personne a 18 ans (âge de la majorité dans de nombreux pays africains) :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">==</span> <span class="mi">18</span><span class="p">)</span>
+<span class="c1"># True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vous pouvez également tester si deux nombres ne sont pas égaux. Par exemple, le code suivant imprime un message si la réponse donnée n’est pas correcte :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reponse_attendue</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">reponse_utilisateur</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="k">if</span> <span class="n">reponse_utilisateur</span> <span class="o">!=</span> <span class="n">reponse_attendue</span><span class="p">:</span> <span class="c1"># Si la réponse de l&#39;utilisateur n&#39;est pas 42</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ce n&#39;est pas la bonne réponse. Veuillez réessayer !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ce n&#39;est pas la bonne réponse. Veuillez réessayer !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le test conditionnel réussit, car la valeur de <code class="docutils literal notranslate"><span class="pre">reponse_utilisateur</span></code> (17) n’est pas égale à 42. Comme le test réussit, le bloc de code indenté est exécuté:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ce</span> <span class="n">n</span><span class="s1">&#39;est pas la bonne réponse. Veuillez réessayer !</span>
+</pre></div>
+</div>
+<p>Vous pouvez inclure diverses comparaisons mathématiques dans vos instructions conditionnelles, telles que inférieur à (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>), inférieur ou égal à (<code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>), supérieur à (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>), et supérieur ou égal à (<code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prix_plantain</span> <span class="o">=</span> <span class="mi">750</span> <span class="c1"># Prix en FCFA</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prix_plantain</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># Est-ce que le prix est inférieur à 1000 FCFA ?</span>
+<span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prix_plantain</span> <span class="o">&lt;=</span> <span class="mi">750</span><span class="p">)</span> <span class="c1"># Est-ce que le prix est inférieur ou égal à 750 FCFA ?</span>
+<span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prix_plantain</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># Est-ce que le prix est supérieur à 1000 FCFA ?</span>
+<span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prix_plantain</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1"># Est-ce que le prix est supérieur ou égal à 1000 FCFA ?</span>
+<span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+False
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verification-de-conditions-multiples">
+<h4>Vérification de Conditions Multiples<a class="headerlink" href="#verification-de-conditions-multiples" title="Link to this heading">#</a></h4>
+<p>Vous voudrez peut-être vérifier plusieurs conditions en même temps. Par exemple, vous pourriez avoir besoin que deux conditions soient <code class="docutils literal notranslate"><span class="pre">True</span></code> pour effectuer une action, ou être satisfait si une seule condition est <code class="docutils literal notranslate"><span class="pre">True</span></code>. Les mots-clés <code class="docutils literal notranslate"><span class="pre">and</span></code> (et) et <code class="docutils literal notranslate"><span class="pre">or</span></code> (ou) peuvent vous aider dans ces situations.</p>
+<p><strong>Utilisation de <code class="docutils literal notranslate"><span class="pre">and</span></code> pour Vérifier Plusieurs Conditions</strong></p>
+<p>Pour vérifier si deux conditions sont toutes les deux <code class="docutils literal notranslate"><span class="pre">True</span></code> simultanément, utilisez le mot-clé <code class="docutils literal notranslate"><span class="pre">and</span></code> pour combiner les deux tests conditionnels. Si chaque test réussit, l’expression globale est évaluée à <code class="docutils literal notranslate"><span class="pre">True</span></code>. Si l’un ou l’autre des tests échoue, ou si les deux échouent, l’expression est évaluée à <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Par exemple, vous pouvez vérifier si une personne a l’âge légal pour conduire (18 ans au Cameroun) et possède un permis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age_conducteur</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">possede_permis</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age_conducteur</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">possede_permis</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<span class="c1"># True</span>
+
+<span class="n">age_conducteur</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age_conducteur</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">possede_permis</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Utilisation de <code class="docutils literal notranslate"><span class="pre">or</span></code> pour Vérifier Plusieurs Conditions</strong></p>
+<p>Le mot-clé <code class="docutils literal notranslate"><span class="pre">or</span></code> vous permet également de vérifier plusieurs conditions, mais il réussit si l’un ou l’autre, ou les deux, des tests individuels réussissent. Une expression <code class="docutils literal notranslate"><span class="pre">or</span></code> échoue uniquement lorsque les deux tests individuels échouent.</p>
+<p>Vérifions si un étudiant a payé ses frais d’inscription ou a obtenu une bourse :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_paye_inscription</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">a_eu_bourse</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_paye_inscription</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">or</span> <span class="n">a_eu_bourse</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<span class="c1"># True</span>
+
+<span class="n">a_paye_inscription</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_paye_inscription</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">or</span> <span class="n">a_eu_bourse</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verifier-si-une-valeur-est-dans-une-liste">
+<h4>Vérifier si une Valeur est dans une Liste<a class="headerlink" href="#verifier-si-une-valeur-est-dans-une-liste" title="Link to this heading">#</a></h4>
+<p>Il est parfois important de vérifier si une liste contient une certaine valeur avant d’entreprendre une action. Par exemple, vous pourriez vouloir vérifier si un ingrédient est déjà dans la liste des ingrédients d’un plat populaire comme le Ndolé.</p>
+<p>Pour savoir si une valeur particulière est déjà dans une liste, utilisez le mot-clé <code class="docutils literal notranslate"><span class="pre">in</span></code>. Faisons une liste d’ingrédients pour le Ndolé et vérifions si certains ingrédients sont dans la liste:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ingredients_ndole</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;feuilles_ameres&#39;</span><span class="p">,</span> <span class="s1">&#39;arachides&#39;</span><span class="p">,</span> <span class="s1">&#39;crevettes&#39;</span><span class="p">,</span> <span class="s1">&#39;huile_rouge&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;arachides&#39;</span> <span class="ow">in</span> <span class="n">ingredients_ndole</span><span class="p">)</span>
+<span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;viande_de_boeuf&#39;</span> <span class="ow">in</span> <span class="n">ingredients_ndole</span><span class="p">)</span>
+<span class="c1"># False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les lignes avec <code class="docutils literal notranslate"><span class="pre">in</span></code> indiquent à Python de vérifier l’existence de ‘arachides’ et ‘viande_de_boeuf’ dans la liste <code class="docutils literal notranslate"><span class="pre">ingredients_ndole</span></code>.</p>
+</section>
+<section id="verifier-si-une-valeur-n-est-pas-dans-une-liste">
+<h4>Vérifier si une Valeur n’est pas dans une Liste<a class="headerlink" href="#verifier-si-une-valeur-n-est-pas-dans-une-liste" title="Link to this heading">#</a></h4>
+<p>Parfois, il est important de savoir si une valeur <em>n’apparaît pas</em> dans une liste. Vous pouvez utiliser le mot-clé <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> dans cette situation. Par exemple, considérez une liste de joueurs suspendus d’une équipe de football. Vous pouvez vérifier si un joueur n’a pas été suspendu avant de l’autoriser à jouer :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">joueurs_suspendus</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;etoo&#39;</span><span class="p">,</span> <span class="s1">&#39;mboma&#39;</span><span class="p">,</span> <span class="s1">&#39;kameni&#39;</span><span class="p">]</span>
+<span class="n">joueur</span> <span class="o">=</span> <span class="s1">&#39;song&#39;</span>
+<span class="k">if</span> <span class="n">joueur</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">joueurs_suspendus</span><span class="p">:</span> <span class="c1"># Si &#39;song&#39; n&#39;est PAS dans la liste des suspendus</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">joueur</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">, tu peux jouer le match.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Song, tu peux jouer le match.
+</pre></div>
+</div>
+</div>
+</div>
+<p>La ligne avec <code class="docutils literal notranslate"><span class="pre">if</span></code> se lit assez clairement. Si la valeur de <code class="docutils literal notranslate"><span class="pre">joueur</span></code> n’est pas dans la liste <code class="docutils literal notranslate"><span class="pre">joueurs_suspendus</span></code>, Python renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> et exécute la ligne indentée.</p>
+<p>Le joueur ‘song’ n’est pas dans la liste <code class="docutils literal notranslate"><span class="pre">joueurs_suspendus</span></code>, il voit donc un message l’invitant à jouer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Song</span><span class="p">,</span> <span class="n">tu</span> <span class="n">peux</span> <span class="n">jouer</span> <span class="n">le</span> <span class="n">match</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="expressions-booleennes">
+<h4>Expressions Booléennes<a class="headerlink" href="#expressions-booleennes" title="Link to this heading">#</a></h4>
+<p>Une expression booléenne est simplement un autre nom pour un test conditionnel. Une valeur booléenne est soit <code class="docutils literal notranslate"><span class="pre">True</span></code>, soit <code class="docutils literal notranslate"><span class="pre">False</span></code>, tout comme la valeur d’une expression conditionnelle après son évaluation. Les valeurs booléennes sont souvent utilisées pour suivre certaines conditions, comme savoir si un jeu est en cours ou si un utilisateur peut modifier certains contenus sur un site web:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">partie_active</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">peut_modifier</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="instructions-if">
+<h3>Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#instructions-if" title="Link to this heading">#</a></h3>
+<p>Maintenant que vous comprenez les tests conditionnels, vous pouvez commencer à écrire des instructions <code class="docutils literal notranslate"><span class="pre">if</span></code>. Il existe plusieurs types d’instructions <code class="docutils literal notranslate"><span class="pre">if</span></code>, et votre choix dépend du nombre de conditions que vous devez tester.</p>
+<section id="instructions-if-simples">
+<h4>Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> Simples<a class="headerlink" href="#instructions-if-simples" title="Link to this heading">#</a></h4>
+<p>Le type le plus simple d’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> a un test et une action:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test_conditionnel</span><span class="p">:</span>
+  <span class="n">faire_quelque_chose</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">if</span> <span class="n">test_conditionnel</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>   <span class="n">faire_quelque_chose</span>
+
+<span class="ne">NameError</span>: name &#39;test_conditionnel&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si le test conditionnel est évalué à <code class="docutils literal notranslate"><span class="pre">True</span></code>, Python exécute le code suivant l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>. Si le test est évalué à <code class="docutils literal notranslate"><span class="pre">False</span></code>, Python ignore le code suivant l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<p>Testons si une personne a l’âge légal pour voter (18 ans au Cameroun):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span> <span class="c1"># Vérifie si l&#39;âge est supérieur ou égal à 18</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous êtes assez âgé pour voter !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vous êtes assez âgé pour voter !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python vérifie si la valeur de <code class="docutils literal notranslate"><span class="pre">age</span></code> est supérieure ou égale à 18. C’est le cas, donc Python exécute l’appel <code class="docutils literal notranslate"><span class="pre">print()</span></code> indenté:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Vous êtes assez âgé pour voter !
+</pre></div>
+</div>
+<p>Vous pouvez avoir autant de lignes de code que vous le souhaitez dans le bloc suivant l’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>. Ajoutons une autre ligne de sortie si la personne est assez âgée pour voter, demandant si elle s’est déjà inscrite:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous êtes assez âgé pour voter !&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous êtes-vous déjà inscrit sur les listes électorales ?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vous êtes assez âgé pour voter !
+Vous êtes-vous déjà inscrit sur les listes électorales ?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le test conditionnel réussit, et les deux appels <code class="docutils literal notranslate"><span class="pre">print()</span></code> sont indentés, donc les deux lignes sont imprimées:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Vous êtes assez âgé pour voter !
+Vous êtes-vous déjà inscrit sur les listes électorales ?
+</pre></div>
+</div>
+</section>
+<section id="instructions-if-else">
+<h4>Instructions <code class="docutils literal notranslate"><span class="pre">if-else</span></code><a class="headerlink" href="#instructions-if-else" title="Link to this heading">#</a></h4>
+<p>Souvent, vous voudrez effectuer une action lorsqu’un test conditionnel réussit et une action différente dans tous les autres cas. La syntaxe <code class="docutils literal notranslate"><span class="pre">if-else</span></code> de Python rend cela possible. Un bloc <code class="docutils literal notranslate"><span class="pre">if-else</span></code> est similaire à une simple instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>, mais l’instruction <code class="docutils literal notranslate"><span class="pre">else</span></code> vous permet de définir une action ou un ensemble d’actions qui sont exécutées lorsque le test conditionnel échoue.</p>
+<p>Affichons le même message si la personne est assez âgée pour voter, mais ajoutons un message pour toute personne qui n’est pas assez âgée:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span> <span class="c1"># Le test échoue car 17 &lt; 18</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous êtes assez âgé pour voter !&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous êtes-vous déjà inscrit sur les listes électorales ?&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1"># Le bloc else est exécuté</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Désolé, vous êtes trop jeune pour voter.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Veuillez vous inscrire dès que vous aurez 18 ans !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Désolé, vous êtes trop jeune pour voter.
+Veuillez vous inscrire dès que vous aurez 18 ans !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si le test conditionnel réussit, le premier bloc d’appels <code class="docutils literal notranslate"><span class="pre">print()</span></code> indentés est exécuté. Si le test est évalué à <code class="docutils literal notranslate"><span class="pre">False</span></code>, le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code> est exécuté. Comme l’âge est inférieur à 18 cette fois, le test conditionnel échoue et le code dans le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code> est exécuté:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Désolé, vous êtes trop jeune pour voter.
+Veuillez vous inscrire dès que vous aurez 18 ans !
+</pre></div>
+</div>
+<p>Cette structure <code class="docutils literal notranslate"><span class="pre">if-else</span></code> fonctionne bien dans les situations où vous voulez que Python exécute toujours l’une des deux actions possibles.</p>
+</section>
+<section id="la-chaine-if-elif-else">
+<h4>La Chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code><a class="headerlink" href="#la-chaine-if-elif-else" title="Link to this heading">#</a></h4>
+<p>Souvent, vous devrez tester plus de deux situations possibles, et pour les évaluer, vous pouvez utiliser la syntaxe <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> de Python. Python n’exécute qu’un seul bloc dans une chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code>. Il exécute chaque test conditionnel dans l’ordre jusqu’à ce qu’un réussisse. Lorsqu’un test réussit, le code suivant ce test est exécuté et Python saute le reste des tests.</p>
+<p>De nombreuses situations réelles impliquent plus de deux conditions possibles. Par exemple, considérons une compagnie de bus qui applique des tarifs différents selon l’âge :</p>
+<ul class="simple">
+<li><p>Les enfants de moins de 6 ans voyagent gratuitement.</p></li>
+<li><p>Les personnes entre 6 et 18 ans paient 150 FCFA.</p></li>
+<li><p>Les personnes de 18 ans ou plus paient 300 FCFA.</p></li>
+</ul>
+<p>Comment pouvons-nous utiliser une instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> pour déterminer le tarif d’une personne ? Le code suivant teste la tranche d’âge d’une personne et imprime ensuite un message sur le prix du billet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span> <span class="c1"># Test si moins de 6 ans</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Votre ticket de bus est gratuit.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span> <span class="c1"># Test si moins de 18 ans (et au moins 6 ans)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Votre ticket de bus coûte 150 FCFA.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1"># Pour tous les autres (18 ans et plus)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Votre ticket de bus coûte 300 FCFA.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Votre ticket de bus coûte 150 FCFA.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le test <code class="docutils literal notranslate"><span class="pre">if</span></code> vérifie si une personne a moins de 6 ans. Si le test réussit, un message approprié est imprimé et Python saute le reste des tests. La ligne <code class="docutils literal notranslate"><span class="pre">elif</span></code> est un autre test <code class="docutils literal notranslate"><span class="pre">if</span></code>, qui ne s’exécute que si le test précédent a échoué. À ce stade de la chaîne, nous savons que la personne a au moins 6 ans car le premier test a échoué. Si la personne a moins de 18 ans, un message approprié est imprimé et Python saute le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code>. Si les tests <code class="docutils literal notranslate"><span class="pre">if</span></code> et <code class="docutils literal notranslate"><span class="pre">elif</span></code> échouent tous les deux, Python exécute le code dans le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p>
+<p>Dans cet exemple, le premier test (<code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&lt;</span> <span class="pre">6</span></code>) est <code class="docutils literal notranslate"><span class="pre">False</span></code>. Le second test (<code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&lt;</span> <span class="pre">18</span></code>) est <code class="docutils literal notranslate"><span class="pre">True</span></code> (12 est inférieur à 18), donc son code est exécuté. La sortie est une seule phrase, informant l’utilisateur du coût du billet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Votre</span> <span class="n">ticket</span> <span class="n">de</span> <span class="n">bus</span> <span class="n">coûte</span> <span class="mi">150</span> <span class="n">FCFA</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Plutôt que d’imprimer le prix dans le bloc <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code>, il serait plus concis de définir uniquement le prix à l’intérieur de la chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> et d’avoir ensuite un simple appel <code class="docutils literal notranslate"><span class="pre">print()</span></code> qui s’exécute après l’évaluation de la chaîne:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Votre ticket de bus coûte </span><span class="si">{</span><span class="n">prix</span><span class="si">}</span><span class="s2"> FCFA.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Votre ticket de bus coûte 150 FCFA.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ce code produit la même sortie que l’exemple précédent, mais le but de la chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> est plus restreint. Au lieu de déterminer un prix et d’afficher un message, il détermine simplement le prix du billet. En plus d’être plus efficace, ce code révisé est plus facile à modifier que l’approche originale.</p>
+</section>
+<section id="utilisation-de-plusieurs-blocs-elif">
+<h4>Utilisation de Plusieurs Blocs <code class="docutils literal notranslate"><span class="pre">elif</span></code><a class="headerlink" href="#utilisation-de-plusieurs-blocs-elif" title="Link to this heading">#</a></h4>
+<p>Vous pouvez utiliser autant de blocs <code class="docutils literal notranslate"><span class="pre">elif</span></code> que vous le souhaitez dans votre code. Par exemple, si la compagnie de bus mettait en œuvre une réduction pour les étudiants (disons 100 FCFA pour les moins de 25 ans avec une carte d’étudiant), vous pourriez ajouter un test conditionnel supplémentaire:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">est_etudiant</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">25</span> <span class="ow">and</span> <span class="n">est_etudiant</span><span class="p">:</span> <span class="c1"># Test supplémentaire pour étudiant</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1"># Pour les 18+ non étudiants ou 25+</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Votre ticket de bus coûte </span><span class="si">{</span><span class="n">prix</span><span class="si">}</span><span class="s2"> FCFA.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Votre ticket de bus coûte 100 FCFA.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="omission-du-bloc-else">
+<h4>Omission du Bloc <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#omission-du-bloc-else" title="Link to this heading">#</a></h4>
+<p>Python n’exige pas de bloc <code class="docutils literal notranslate"><span class="pre">else</span></code> à la fin d’une chaîne <code class="docutils literal notranslate"><span class="pre">if-elif</span></code>. Parfois, un bloc <code class="docutils literal notranslate"><span class="pre">else</span></code> est utile ; parfois, il est plus clair d’utiliser une instruction <code class="docutils literal notranslate"><span class="pre">elif</span></code> supplémentaire qui capture la condition spécifique d’intérêt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">:</span> <span class="c1"># Tarif normal pour adultes &lt; 65 ans</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">65</span><span class="p">:</span> <span class="c1"># Tarif spécial pour seniors &gt;= 65 ans</span>
+  <span class="n">prix</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Votre ticket de bus coûte </span><span class="si">{</span><span class="n">prix</span><span class="si">}</span><span class="s2"> FCFA.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Votre ticket de bus coûte 200 FCFA.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le bloc <code class="docutils literal notranslate"><span class="pre">elif</span></code> supplémentaire à la fin assigne un prix de 200 FCFA lorsque la personne a 65 ans ou plus, ce qui est un peu plus clair que le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code> général. Avec ce changement, chaque bloc de code doit passer un test spécifique pour être exécuté.</p>
+</section>
+<section id="tester-plusieurs-conditions">
+<h4>Tester Plusieurs Conditions<a class="headerlink" href="#tester-plusieurs-conditions" title="Link to this heading">#</a></h4>
+<p>La chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> est puissante, mais elle ne convient que lorsque vous avez besoin qu’un seul test réussisse. Dès que Python trouve un test qui réussit, il saute le reste des tests.</p>
+<p>Cependant, il est parfois important de vérifier <em>toutes</em> les conditions d’intérêt. Dans ce cas, vous devez utiliser une série d’instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> simples sans blocs <code class="docutils literal notranslate"><span class="pre">elif</span></code> ou <code class="docutils literal notranslate"><span class="pre">else</span></code>. Cette technique est logique lorsque plus d’une condition pourrait être <code class="docutils literal notranslate"><span class="pre">True</span></code>, et que vous voulez agir sur chaque condition qui est <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Reconsidérons l’exemple du restaurant (pizzeria dans l’original). Si quelqu’un commande un plat avec plusieurs accompagnements, vous devrez vous assurer d’inclure tous les accompagnements. Adapté à un contexte camerounais, imaginons la commande d’un plat comme le “Poulet DG” avec des suppléments :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supplements_commandes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;plantain&#39;</span><span class="p">,</span> <span class="s1">&#39;riz&#39;</span><span class="p">,</span> <span class="s1">&#39;alloco&#39;</span><span class="p">]</span> <span class="c1"># &#39;alloco&#39; = bananes plantains frites</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Préparation de votre Poulet DG avec :&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;plantain&#39;</span> <span class="ow">in</span> <span class="n">supplements_commandes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Supplément Plantain&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;riz&#39;</span> <span class="ow">in</span> <span class="n">supplements_commandes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Supplément Riz&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;alloco&#39;</span> <span class="ow">in</span> <span class="n">supplements_commandes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Supplément Alloco&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Plat terminé !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Préparation de votre Poulet DG avec :
+- Supplément Plantain
+- Supplément Riz
+- Supplément Alloco
+
+Plat terminé !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous commençons par une liste contenant les suppléments demandés. L’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> pour ‘plantain’ vérifie si le client a demandé du plantain. Si oui, un message est imprimé confirmant ce supplément. Le test pour ‘riz’ est une autre instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> simple, pas une instruction <code class="docutils literal notranslate"><span class="pre">elif</span></code> ou <code class="docutils literal notranslate"><span class="pre">else</span></code>, donc ce test est exécuté que le test précédent ait réussi ou non. Le code pour ‘alloco’ vérifie si l’alloco a été demandé indépendamment des résultats des deux premiers tests. Ces trois tests indépendants sont exécutés à chaque fois que ce programme est lancé.</p>
+<p>Comme chaque condition est évaluée, tous les suppléments demandés sont ajoutés:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Préparation de votre Poulet DG avec :
+- Supplément Plantain
+- Supplément Riz
+- Supplément Alloco
+
+Plat terminé !
+</pre></div>
+</div>
+<p>Ce code ne fonctionnerait pas correctement si nous utilisions un bloc <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code>, car le code s’arrêterait après la réussite du premier test.</p>
+<p>En résumé, si vous ne voulez exécuter qu’un seul bloc de code, utilisez une chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code>. Si plus d’un bloc de code doit être exécuté, utilisez une série d’instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> indépendantes.</p>
+</section>
+</section>
+<section id="utilisation-des-instructions-if-avec-les-listes">
+<h3>Utilisation des Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> avec les Listes<a class="headerlink" href="#utilisation-des-instructions-if-avec-les-listes" title="Link to this heading">#</a></h3>
+<p>Vous pouvez faire un travail intéressant lorsque vous combinez des listes et des instructions <code class="docutils literal notranslate"><span class="pre">if</span></code>. Vous pouvez surveiller les valeurs spéciales qui doivent être traitées différemment des autres valeurs de la liste. Vous pouvez gérer efficacement les conditions changeantes, comme la disponibilité de certains plats dans un restaurant tout au long de la journée.</p>
+<section id="verification-des-elements-speciaux">
+<h4>Vérification des Éléments Spéciaux<a class="headerlink" href="#verification-des-elements-speciaux" title="Link to this heading">#</a></h4>
+<p>Revenons à l’exemple du restaurant. Le restaurant affiche un message chaque fois qu’un ingrédient est ajouté à votre plat pendant sa préparation. Le code pour cette action peut être écrit très efficacement en faisant une liste des ingrédients demandés par le client et en utilisant une boucle pour annoncer chaque ingrédient au fur et à mesure de son ajout:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ingredients_commandes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;poisson_fume&#39;</span><span class="p">,</span> <span class="s1">&#39;gombo&#39;</span><span class="p">,</span> <span class="s1">&#39;huile_rouge&#39;</span><span class="p">]</span> <span class="c1"># Ingrédients pour une sauce gombo</span>
+<span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">ingredients_commandes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ajout de </span><span class="si">{</span><span class="n">ingredient</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sauce Gombo terminée !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ajout de poisson_fume.
+Ajout de gombo.
+Ajout de huile_rouge.
+
+Sauce Gombo terminée !
+</pre></div>
+</div>
+</div>
+</div>
+<p>La sortie est simple car ce code est juste une simple boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Ajout de poisson_fume.
+Ajout de gombo.
+Ajout de huile_rouge.
+
+Sauce Gombo terminée !
+</pre></div>
+</div>
+<p>Mais que se passe-t-il si le restaurant est à court de gombo ? Une instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> à l’intérieur de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> peut gérer cette situation de manière appropriée:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ingredients_commandes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;poisson_fume&#39;</span><span class="p">,</span> <span class="s1">&#39;gombo&#39;</span><span class="p">,</span> <span class="s1">&#39;huile_rouge&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">ingredients_commandes</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">ingredient</span> <span class="o">==</span> <span class="s1">&#39;gombo&#39;</span><span class="p">:</span> <span class="c1"># Vérifie si l&#39;ingrédient est &#39;gombo&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Désolé, nous n&#39;avons plus de gombo pour le moment.&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span> <span class="c1"># Ajoute les autres ingrédients</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ajout de </span><span class="si">{</span><span class="n">ingredient</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sauce Gombo terminée !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ajout de poisson_fume.
+Désolé, nous n&#39;avons plus de gombo pour le moment.
+Ajout de huile_rouge.
+
+Sauce Gombo terminée !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cette fois, nous vérifions chaque ingrédient demandé avant de l’ajouter. Le code avec <code class="docutils literal notranslate"><span class="pre">if</span></code> vérifie si la personne a demandé du gombo. Si oui, nous affichons un message les informant pourquoi ils ne peuvent pas avoir de gombo. Le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code> garantit que tous les autres ingrédients seront ajoutés.</p>
+<p>La sortie montre que chaque ingrédient demandé est traité de manière appropriée:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Ajout de poisson_fume.
+Désolé, nous n&#39;avons plus de gombo pour le moment.
+Ajout de huile_rouge.
+
+Sauce Gombo terminée !
+</pre></div>
+</div>
+</section>
+<section id="verifier-qu-une-liste-n-est-pas-vide">
+<h4>Vérifier qu’une Liste n’est pas Vide<a class="headerlink" href="#verifier-qu-une-liste-n-est-pas-vide" title="Link to this heading">#</a></h4>
+<p>Nous avons fait une simple supposition sur chaque liste avec laquelle nous avons travaillé jusqu’à présent ; nous avons supposé que chaque liste contenait au moins un élément. Bientôt, nous laisserons les utilisateurs fournir les informations stockées dans une liste, nous ne pourrons donc pas supposer qu’une liste contient des éléments à chaque exécution d’une boucle. Dans cette situation, il est utile de vérifier si une liste est vide avant d’exécuter une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
+<p>Par exemple, vérifions si la liste des ingrédients commandés est vide avant de préparer le plat. Si la liste est vide, nous demanderons à l’utilisateur et nous assurerons qu’il souhaite un plat nature. Si la liste n’est pas vide, nous préparerons le plat comme dans les exemples précédents:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ingredients_commandes</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># Liste vide</span>
+<span class="k">if</span> <span class="n">ingredients_commandes</span><span class="p">:</span> <span class="c1"># Vérifie si la liste contient des éléments</span>
+  <span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">ingredients_commandes</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ajout de </span><span class="si">{</span><span class="n">ingredient</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Plat terminé !&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1"># Si la liste est vide</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Êtes-vous sûr de vouloir un plat sans ingrédients ?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Êtes-vous sûr de vouloir un plat sans ingrédients ?
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cette fois, nous commençons avec une liste vide d’ingrédients commandés. Au lieu de sauter directement dans une boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>, nous effectuons une vérification rapide. Lorsque le nom d’une liste est utilisé dans une instruction <code class="docutils literal notranslate"><span class="pre">if</span></code>, Python renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la liste contient au moins un élément ; une liste vide est évaluée à <code class="docutils literal notranslate"><span class="pre">False</span></code>. Si <code class="docutils literal notranslate"><span class="pre">ingredients_commandes</span></code> réussit le test conditionnel (c’est-à-dire n’est pas vide), nous exécutons la même boucle <code class="docutils literal notranslate"><span class="pre">for</span></code> que dans l’exemple précédent. Si le test conditionnel échoue (la liste est vide), nous imprimons un message demandant au client s’il veut vraiment un plat nature.</p>
+<p>La liste est vide dans ce cas, donc la sortie demande si l’utilisateur veut vraiment un plat nature:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Êtes-vous sûr de vouloir un plat sans ingrédients ?
+</pre></div>
+</div>
+</section>
+<section id="utilisation-de-plusieurs-listes">
+<h4>Utilisation de Plusieurs Listes<a class="headerlink" href="#utilisation-de-plusieurs-listes" title="Link to this heading">#</a></h4>
+<p>Les clients demanderont à peu près n’importe quoi, surtout quand il s’agit de nourriture. Et si un client voulait des frites dans son Ndolé ? Vous pouvez utiliser des listes et des instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> pour vous assurer que votre entrée a du sens avant d’agir dessus.</p>
+<p>Surveillons les demandes d’ingrédients inhabituelles avant de préparer un plat. L’exemple suivant définit deux listes. La première est une liste d’ingrédients disponibles au restaurant, et la seconde est la liste des ingrédients que le client a demandés. Cette fois, chaque élément dans <code class="docutils literal notranslate"><span class="pre">ingredients_commandes</span></code> est vérifié par rapport à la liste des ingrédients disponibles avant d’être ajouté au plat:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ingredients_disponibles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;feuilles_ameres&#39;</span><span class="p">,</span> <span class="s1">&#39;arachides&#39;</span><span class="p">,</span> <span class="s1">&#39;crevettes&#39;</span><span class="p">,</span> <span class="s1">&#39;poisson_fume&#39;</span><span class="p">,</span> <span class="s1">&#39;huile_rouge&#39;</span><span class="p">]</span>
+<span class="n">ingredients_commandes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;feuilles_ameres&#39;</span><span class="p">,</span> <span class="s1">&#39;frites&#39;</span><span class="p">,</span> <span class="s1">&#39;crevettes&#39;</span><span class="p">]</span> <span class="c1"># Demande inhabituelle : frites</span>
+
+<span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">ingredients_commandes</span><span class="p">:</span> <span class="c1"># Parcourt les ingrédients commandés</span>
+  <span class="k">if</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">ingredients_disponibles</span><span class="p">:</span> <span class="c1"># Vérifie si l&#39;ingrédient est disponible</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ajout de </span><span class="si">{</span><span class="n">ingredient</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span> <span class="c1"># Si l&#39;ingrédient n&#39;est pas disponible</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Désolé, nous n&#39;avons pas de </span><span class="si">{</span><span class="n">ingredient</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Plat terminé !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ajout de feuilles_ameres.
+Désolé, nous n&#39;avons pas de frites.
+Ajout de crevettes.
+
+Plat terminé !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nous définissons d’abord une liste d’ingrédients disponibles. Ensuite, nous créons une liste d’ingrédients qu’un client a demandés, y compris la demande inhabituelle de ‘frites’. Nous parcourons ensuite la liste des ingrédients demandés. À l’intérieur de la boucle, nous vérifions d’abord si chaque ingrédient demandé est réellement dans la liste des ingrédients disponibles. Si c’est le cas, nous ajoutons cet ingrédient. Si l’ingrédient demandé n’est pas dans la liste des ingrédients disponibles, le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code> s’exécutera. Le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code> imprime un message informant l’utilisateur quels ingrédients ne sont pas disponibles.</p>
+<p>Ce code produit une sortie claire et informative:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Ajout de feuilles_ameres.
+Désolé, nous n&#39;avons pas de frites.
+Ajout de crevettes.
+
+Plat terminé !
+</pre></div>
+</div>
+</section>
+</section>
+<section id="style-de-vos-instructions-if">
+<h3>Style de Vos Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#style-de-vos-instructions-if" title="Link to this heading">#</a></h3>
+<p>La seule recommandation de la PEP 8 pour le style des tests conditionnels est d’utiliser un seul espace autour des opérateurs de comparaison, tels que <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>. Par exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Préférable</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+  <span class="o">...</span>
+<span class="c1"># Moins lisible</span>
+<span class="k">if</span> <span class="n">age</span><span class="o">&lt;</span><span class="mi">18</span><span class="p">:</span>
+  <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Un tel espacement n’affecte pas la façon dont Python interprète votre code ; il rend simplement votre code plus facile à lire pour vous et les autres.</p>
+</section>
+<section id="exercices">
+<h3>Exercices<a class="headerlink" href="#exercices" title="Link to this heading">#</a></h3>
+<p>Écrivez une série de tests conditionnels. Imprimez une déclaration décrivant chaque test et votre prédiction pour les résultats de chaque test. Votre code devrait ressembler à ceci :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">voiture</span> <span class="o">=</span> <span class="s1">&#39;toyota&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Est-ce que voiture == &#39;toyota&#39;? Je prédis True.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">voiture</span> <span class="o">==</span> <span class="s1">&#39;toyota&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que voiture == &#39;audi&#39;? Je prédis False.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">voiture</span> <span class="o">==</span> <span class="s1">&#39;audi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Examinez attentivement vos résultats et assurez-vous de comprendre pourquoi chaque ligne est évaluée à <code class="docutils literal notranslate"><span class="pre">True</span></code> ou <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p>Créez au moins dix tests. Ayez au moins cinq tests évalués à <code class="docutils literal notranslate"><span class="pre">True</span></code> et cinq autres tests évalués à <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<section id="exercice-2-plus-de-tests-conditionnels">
+<h4>Exercice 2 : Plus de Tests Conditionnels<a class="headerlink" href="#exercice-2-plus-de-tests-conditionnels" title="Link to this heading">#</a></h4>
+<p>Vous n’avez pas à limiter le nombre de tests que vous créez à dix. Si vous voulez essayer plus de comparaisons, écrivez plus de tests et ajoutez-les à <code class="docutils literal notranslate"><span class="pre">tests_conditionnels.py</span></code>. Ayez au moins un résultat <code class="docutils literal notranslate"><span class="pre">True</span></code> et un <code class="docutils literal notranslate"><span class="pre">False</span></code> pour chacun des éléments suivants:</p>
+<ul class="simple">
+<li><p>Tests d’égalité et d’inégalité avec des chaînes de caractères.</p></li>
+<li><p>Tests utilisant la méthode <code class="docutils literal notranslate"><span class="pre">lower()</span></code>.</p></li>
+<li><p>Tests numériques impliquant l’égalité et l’inégalité, supérieur à et inférieur à, supérieur ou égal à, et inférieur ou égal à.</p></li>
+<li><p>Tests utilisant le mot-clé <code class="docutils literal notranslate"><span class="pre">and</span></code> et le mot-clé <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p></li>
+<li><p>Test si un élément est dans une liste.</p></li>
+<li><p>Test si un élément n’est pas dans une liste.</p></li>
+</ul>
+</section>
+<section id="exercice-3-couleurs-d-aliens-1">
+<h4>Exercice 3 : Couleurs d’Aliens #1<a class="headerlink" href="#exercice-3-couleurs-d-aliens-1" title="Link to this heading">#</a></h4>
+<p>Imaginez qu’un alien vient d’être abattu dans un jeu. Créez une variable appelée <code class="docutils literal notranslate"><span class="pre">couleur_alien</span></code> et attribuez-lui une valeur de ‘vert’, ‘jaune’ ou ‘rouge’.</p>
+<ul class="simple">
+<li><p>Écrivez une instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> pour tester si la couleur de l’alien est verte. Si c’est le cas, imprimez un message indiquant que le joueur vient de gagner 5 points.</p></li>
+<li><p>Écrivez une version de ce programme qui réussit le test <code class="docutils literal notranslate"><span class="pre">if</span></code> et une autre qui échoue. (La version qui échoue n’aura aucune sortie.)</p></li>
+</ul>
+</section>
+<section id="exercice-4-couleurs-d-aliens-2">
+<h4>Exercice 4 : Couleurs d’Aliens #2<a class="headerlink" href="#exercice-4-couleurs-d-aliens-2" title="Link to this heading">#</a></h4>
+<p>Choisissez une couleur pour un alien comme vous l’avez fait dans l’exercice 5-3, et écrivez une chaîne <code class="docutils literal notranslate"><span class="pre">if-else</span></code>.</p>
+<ul class="simple">
+<li><p>Si la couleur de l’alien est verte, imprimez une déclaration indiquant que le joueur vient de gagner 5 points pour avoir tiré sur l’alien.</p></li>
+<li><p>Si la couleur de l’alien n’est pas verte, imprimez une déclaration indiquant que le joueur vient de gagner 10 points.</p></li>
+<li><p>Écrivez une version de ce programme qui exécute le bloc <code class="docutils literal notranslate"><span class="pre">if</span></code> et une autre qui exécute le bloc <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p></li>
+</ul>
+</section>
+<section id="exercice-5-couleurs-d-aliens-3">
+<h4>Exercice 5 : Couleurs d’Aliens #3<a class="headerlink" href="#exercice-5-couleurs-d-aliens-3" title="Link to this heading">#</a></h4>
+<p>Transformez votre chaîne <code class="docutils literal notranslate"><span class="pre">if-else</span></code> de l’exercice 5-4 en une chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code>.</p>
+<ul class="simple">
+<li><p>Si l’alien est vert, imprimez un message indiquant que le joueur a gagné 5 points.</p></li>
+<li><p>Si l’alien est jaune, imprimez un message indiquant que le joueur a gagné 10 points.</p></li>
+<li><p>Si l’alien est rouge, imprimez un message indiquant que le joueur a gagné 15 points.</p></li>
+<li><p>Écrivez trois versions de ce programme, en vous assurant que chaque message est imprimé pour l’alien de la couleur appropriée.</p></li>
+</ul>
+</section>
+<section id="exercice-6-etapes-de-la-vie">
+<h4>Exercice 6 : Étapes de la Vie<a class="headerlink" href="#exercice-6-etapes-de-la-vie" title="Link to this heading">#</a></h4>
+<p>Écrivez une chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> qui détermine l’étape de la vie d’une personne. Définissez une valeur pour la variable <code class="docutils literal notranslate"><span class="pre">age</span></code>, puis :</p>
+<ul class="simple">
+<li><p>Si la personne a moins de 2 ans, imprimez un message indiquant que la personne est un bébé.</p></li>
+<li><p>Si la personne a au moins 2 ans mais moins de 4 ans, imprimez un message indiquant que la personne est un bambin (toddler).</p></li>
+<li><p>Si la personne a au moins 4 ans mais moins de 13 ans, imprimez un message indiquant que la personne est un enfant (kid).</p></li>
+<li><p>Si la personne a au moins 13 ans mais moins de 20 ans, imprimez un message indiquant que la personne est un adolescent.</p></li>
+<li><p>Si la personne a au moins 20 ans mais moins de 65 ans, imprimez un message indiquant que la personne est un adulte.</p></li>
+<li><p>Si la personne a 65 ans ou plus, imprimez un message indiquant que la personne est un aîné (elder).</p></li>
+</ul>
+</section>
+<section id="exercice-7-fruit-prefere">
+<h4>Exercice 7 : Fruit Préféré<a class="headerlink" href="#exercice-7-fruit-prefere" title="Link to this heading">#</a></h4>
+<p>Faites une liste de vos fruits préférés, puis écrivez une série d’instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> indépendantes qui vérifient certains fruits dans votre liste.</p>
+<ul class="simple">
+<li><p>Faites une liste de vos trois fruits préférés et appelez-la <code class="docutils literal notranslate"><span class="pre">fruits_preferes</span></code>.</p></li>
+<li><p>Écrivez cinq instructions <code class="docutils literal notranslate"><span class="pre">if</span></code>. Chacune doit vérifier si un certain type de fruit est dans votre liste. Si le fruit est dans votre liste, le bloc <code class="docutils literal notranslate"><span class="pre">if</span></code> doit imprimer une déclaration, telle que “Vous aimez vraiment les mangues !”.</p></li>
+</ul>
+</section>
+<section id="exercice-8-bonjour-admin">
+<h4>Exercice 8 : Bonjour Admin<a class="headerlink" href="#exercice-8-bonjour-admin" title="Link to this heading">#</a></h4>
+<p>Faites une liste de cinq noms d’utilisateur ou plus, y compris le nom ‘admin’. Imaginez que vous écrivez du code qui imprimera un message d’accueil à chaque utilisateur après sa connexion à un site Web. Parcourez la liste et imprimez un message d’accueil à chaque utilisateur:</p>
+<ul class="simple">
+<li><p>Si le nom d’utilisateur est ‘admin’, imprimez un message d’accueil spécial, tel que “Bonjour admin, souhaitez-vous voir un rapport de statut ?”.</p></li>
+<li><p>Sinon, imprimez un message d’accueil générique, tel que “Bonjour Paul, merci de vous reconnecter.”.</p></li>
+</ul>
+</section>
+<section id="exercice-9-pas-d-utilisateurs">
+<h4>Exercice 9 : Pas d’Utilisateurs<a class="headerlink" href="#exercice-9-pas-d-utilisateurs" title="Link to this heading">#</a></h4>
+<p>Ajoutez un test <code class="docutils literal notranslate"><span class="pre">if</span></code> à <code class="docutils literal notranslate"><span class="pre">bonjour_admin.py</span></code> pour vous assurer que la liste des utilisateurs n’est pas vide.</p>
+<ul class="simple">
+<li><p>Si la liste est vide, imprimez le message “Nous devons trouver des utilisateurs !”.</p></li>
+<li><p>Supprimez tous les noms d’utilisateur de votre liste et assurez-vous que le message correct est imprimé.</p></li>
+</ul>
+</section>
+<section id="exercice-10-verification-des-noms-d-utilisateur">
+<h4>Exercice 10 : Vérification des Noms d’Utilisateur<a class="headerlink" href="#exercice-10-verification-des-noms-d-utilisateur" title="Link to this heading">#</a></h4>
+<p>Faites ce qui suit pour créer un programme qui simule la manière dont les sites Web garantissent que tout le monde a un nom d’utilisateur unique.</p>
+<ul class="simple">
+<li><p>Faites une liste de cinq noms d’utilisateur ou plus appelée <code class="docutils literal notranslate"><span class="pre">utilisateurs_actuels</span></code>.</p></li>
+<li><p>Faites une autre liste de cinq noms d’utilisateur appelée <code class="docutils literal notranslate"><span class="pre">nouveaux_utilisateurs</span></code>. Assurez-vous qu’un ou deux des nouveaux noms d’utilisateur figurent également dans la liste <code class="docutils literal notranslate"><span class="pre">utilisateurs_actuels</span></code>.</p></li>
+<li><p>Parcourez la liste <code class="docutils literal notranslate"><span class="pre">nouveaux_utilisateurs</span></code> pour voir if chaque nouveau nom d’utilisateur a déjà été utilisé. S’il l’a été, imprimez un message indiquant que la personne devra saisir un nouveau nom d’utilisateur. Si un nom d’utilisateur n’a pas été utilisé, imprimez un message indiquant que le nom d’utilisateur est disponible.</p></li>
+<li><p>Assurez-vous que votre comparaison est insensible à la casse. Si ‘Patrice’ a été utilisé, ‘PATRICE’ ne doit pas être accepté. (Pour ce faire, vous devrez créer une copie de <code class="docutils literal notranslate"><span class="pre">utilisateurs_actuels</span></code> contenant les versions minuscules de tous les utilisateurs existants.).</p></li>
+</ul>
+</section>
+<section id="exercice-11-nombres-ordinaux">
+<h4>Exercice 11 : Nombres Ordinaux<a class="headerlink" href="#exercice-11-nombres-ordinaux" title="Link to this heading">#</a></h4>
+<p>Les nombres ordinaux indiquent leur position dans une liste, comme 1er ou 2ème. La plupart des nombres ordinaux se terminent par <code class="docutils literal notranslate"><span class="pre">th</span></code> en anglais, sauf 1, 2 et 3. En français, c’est un peu différent (1er, 2nd/2ème, 3ème, 4ème…).</p>
+<ul class="simple">
+<li><p>Stockez les nombres de 1 à 9 dans une liste.</p></li>
+<li><p>Parcourez la liste.</p></li>
+<li><p>Utilisez une chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code> à l’intérieur de la boucle pour imprimer la terminaison ordinale appropriée pour chaque nombre (adaptez pour le français : 1er, 2ème, 3ème, etc.). Votre sortie doit ressembler à “1er 2ème 3ème 4ème 5ème 6ème 7ème 8ème 9ème”, et chaque résultat doit être sur une ligne distincte.</p></li>
+</ul>
+</section>
+<section id="exercice-12-style-des-instructions-if">
+<h4>Exercice 12 : Style des instructions if<a class="headerlink" href="#exercice-12-style-des-instructions-if" title="Link to this heading">#</a></h4>
+<p>Examinez les programmes que vous avez écrits dans ce chapitre et assurez-vous d’avoir correctement stylisé vos tests conditionnels.</p>
+</section>
+<section id="exercice-13-vos-idees">
+<h4>Exercice 13 : Vos Idées<a class="headerlink" href="#exercice-13-vos-idees" title="Link to this heading">#</a></h4>
+<p>À ce stade, vous êtes un programmeur plus capable que lorsque vous avez commencé ce livre. Maintenant que vous avez une meilleure idée de la façon dont les situations du monde réel sont modélisées dans les programmes, vous pourriez penser à certains problèmes que vous pourriez résoudre avec vos propres programmes. Notez toutes les nouvelles idées que vous avez sur les problèmes que vous pourriez vouloir résoudre à mesure que vos compétences en programmation continuent de s’améliorer. Pensez aux jeux que vous pourriez vouloir écrire, aux ensembles de données que vous pourriez vouloir explorer et aux applications Web que vous aimeriez créer.</p>
+</section>
+</section>
+<section id="corrections-des-exercices">
+<h3>Corrections des Exercices<a class="headerlink" href="#corrections-des-exercices" title="Link to this heading">#</a></h3>
+<section id="correction-1-2-tests-conditionnels">
+<h4>Correction 1 &amp; 2 : Tests Conditionnels<a class="headerlink" href="#correction-1-2-tests-conditionnels" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tests_conditionnels.py</span>
+
+<span class="c1"># Tests évaluant à True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Tests évaluant à True ---&quot;</span><span class="p">)</span>
+<span class="n">pays</span> <span class="o">=</span> <span class="s1">&#39;cameroun&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Est-ce que pays == &#39;cameroun&#39;? Je prédis True.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pays</span> <span class="o">==</span> <span class="s1">&#39;cameroun&#39;</span><span class="p">)</span> <span class="c1"># Égalité de chaîne</span>
+
+<span class="n">ville</span> <span class="o">=</span> <span class="s1">&#39;Yaoundé&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que ville.lower() == &#39;yaoundé&#39;? Je prédis True.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ville</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;yaoundé&#39;</span><span class="p">)</span> <span class="c1"># Égalité insensible à la casse</span>
+
+<span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que age &gt;= 18? Je prédis True.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="c1"># Supérieur ou égal</span>
+
+<span class="n">prix_beignet</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que prix_beignet &lt; 100? Je prédis True.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prix_beignet</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># Inférieur</span>
+
+<span class="n">stock_riz</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># en sacs</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que stock_riz &gt; 0 and stock_riz &lt;= 10? Je prédis True.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stock_riz</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">stock_riz</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># Condition &#39;and&#39;</span>
+
+<span class="n">equipe_nationale</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lions indomptables&#39;</span><span class="p">,</span> <span class="s1">&#39;elephants&#39;</span><span class="p">,</span> <span class="s1">&#39;super eagles&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que &#39;lions indomptables&#39; in equipe_nationale? Je prédis True.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;lions indomptables&#39;</span> <span class="ow">in</span> <span class="n">equipe_nationale</span><span class="p">)</span> <span class="c1"># Élément dans la liste</span>
+
+<span class="c1"># Tests évaluant à False</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Tests évaluant à False ---&quot;</span><span class="p">)</span>
+<span class="n">plat_du_jour</span> <span class="o">=</span> <span class="s1">&#39;ndole&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Est-ce que plat_du_jour == &#39;poulet dg&#39;? Je prédis False.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plat_du_jour</span> <span class="o">==</span> <span class="s1">&#39;poulet dg&#39;</span><span class="p">)</span> <span class="c1"># Inégalité de chaîne</span>
+
+<span class="n">region</span> <span class="o">=</span> <span class="s1">&#39;Littoral&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que region.lower() == &#39;centre&#39;? Je prédis False.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;centre&#39;</span><span class="p">)</span> <span class="c1"># Inégalité insensible à la casse</span>
+
+<span class="n">temperature_douala</span> <span class="o">=</span> <span class="mi">28</span> <span class="c1"># en degrés Celsius</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que temperature_douala &lt;= 20? Je prédis False.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temperature_douala</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="c1"># Inférieur ou égal</span>
+
+<span class="n">nombre_enfants</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que nombre_enfants &gt; 0? Je prédis False.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nombre_enfants</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Supérieur</span>
+
+<span class="n">a_plu</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">soleil_brille</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que a_plu == True or soleil_brille == True? Je prédis False.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_plu</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">or</span> <span class="n">soleil_brille</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># Condition &#39;or&#39;</span>
+
+<span class="n">fruits_marche</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mangue&#39;</span><span class="p">,</span> <span class="s1">&#39;ananas&#39;</span><span class="p">,</span> <span class="s1">&#39;papaye&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que &#39;banane&#39; in fruits_marche? Je prédis False.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;banane&#39;</span> <span class="ow">in</span> <span class="n">fruits_marche</span><span class="p">)</span> <span class="c1"># Élément pas dans la liste</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Est-ce que &#39;papaye&#39; not in fruits_marche? Je prédis False.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;papaye&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fruits_marche</span><span class="p">)</span> <span class="c1"># not in évalué à False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Tests évaluant à True ---
+Est-ce que pays == &#39;cameroun&#39;? Je prédis True.
+True
+
+Est-ce que ville.lower() == &#39;yaoundé&#39;? Je prédis True.
+True
+
+Est-ce que age &gt;= 18? Je prédis True.
+True
+
+Est-ce que prix_beignet &lt; 100? Je prédis True.
+True
+
+Est-ce que stock_riz &gt; 0 and stock_riz &lt;= 10? Je prédis True.
+True
+
+Est-ce que &#39;lions indomptables&#39; in equipe_nationale? Je prédis True.
+True
+
+--- Tests évaluant à False ---
+Est-ce que plat_du_jour == &#39;poulet dg&#39;? Je prédis False.
+False
+
+Est-ce que region.lower() == &#39;centre&#39;? Je prédis False.
+False
+
+Est-ce que temperature_douala &lt;= 20? Je prédis False.
+False
+
+Est-ce que nombre_enfants &gt; 0? Je prédis False.
+False
+
+Est-ce que a_plu == True or soleil_brille == True? Je prédis False.
+False
+
+Est-ce que &#39;banane&#39; in fruits_marche? Je prédis False.
+False
+
+Est-ce que &#39;papaye&#39; not in fruits_marche? Je prédis False.
+False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-3-couleurs-d-aliens-1">
+<h4>Correction 3 : Couleurs d’Aliens #1<a class="headerlink" href="#correction-3-couleurs-d-aliens-1" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># couleur_alien_v1.py (réussit)</span>
+<span class="n">couleur_alien</span> <span class="o">=</span> <span class="s1">&#39;vert&#39;</span>
+<span class="k">if</span> <span class="n">couleur_alien</span> <span class="o">==</span> <span class="s1">&#39;vert&#39;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur vient de gagner 5 points !&quot;</span><span class="p">)</span>
+
+<span class="c1"># couleur_alien_v2.py (échoue - pas de sortie)</span>
+<span class="n">couleur_alien</span> <span class="o">=</span> <span class="s1">&#39;rouge&#39;</span>
+<span class="k">if</span> <span class="n">couleur_alien</span> <span class="o">==</span> <span class="s1">&#39;vert&#39;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur vient de gagner 5 points !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le joueur vient de gagner 5 points !
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-4-couleurs-d-aliens-2">
+<h4>Correction 4 : Couleurs d’Aliens #2<a class="headerlink" href="#correction-4-couleurs-d-aliens-2" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># couleur_alien_if_else_v1.py (bloc if)</span>
+<span class="n">couleur_alien</span> <span class="o">=</span> <span class="s1">&#39;vert&#39;</span>
+<span class="k">if</span> <span class="n">couleur_alien</span> <span class="o">==</span> <span class="s1">&#39;vert&#39;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur vient de gagner 5 points pour avoir tiré sur l&#39;alien.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur vient de gagner 10 points.&quot;</span><span class="p">)</span>
+
+<span class="c1"># couleur_alien_if_else_v2.py (bloc else)</span>
+<span class="n">couleur_alien</span> <span class="o">=</span> <span class="s1">&#39;jaune&#39;</span>
+<span class="k">if</span> <span class="n">couleur_alien</span> <span class="o">==</span> <span class="s1">&#39;vert&#39;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur vient de gagner 5 points pour avoir tiré sur l&#39;alien.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur vient de gagner 10 points.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le joueur vient de gagner 5 points pour avoir tiré sur l&#39;alien.
+Le joueur vient de gagner 10 points.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-5-couleurs-d-aliens-3">
+<h4>Correction 5 : Couleurs d’Aliens #3<a class="headerlink" href="#correction-5-couleurs-d-aliens-3" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># couleur_alien_if_elif_else.py</span>
+<span class="n">couleur_alien</span> <span class="o">=</span> <span class="s1">&#39;jaune&#39;</span> <span class="c1"># Changez cette valeur pour tester (&#39;vert&#39;, &#39;jaune&#39;, &#39;rouge&#39;)</span>
+
+<span class="k">if</span> <span class="n">couleur_alien</span> <span class="o">==</span> <span class="s1">&#39;vert&#39;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur a gagné 5 points.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">couleur_alien</span> <span class="o">==</span> <span class="s1">&#39;jaune&#39;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur a gagné 10 points.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">couleur_alien</span> <span class="o">==</span> <span class="s1">&#39;rouge&#39;</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le joueur a gagné 15 points.&quot;</span><span class="p">)</span>
+<span class="c1"># Pas de bloc else nécessaire ici si ce sont les seules couleurs possibles.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le joueur a gagné 10 points.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-6-etapes-de-la-vie">
+<h4>Correction 6 : Étapes de la Vie<a class="headerlink" href="#correction-6-etapes-de-la-vie" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># etapes_vie.py</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># Changez cette valeur pour tester</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+  <span class="n">etape</span> <span class="o">=</span> <span class="s1">&#39;un bébé&#39;</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+  <span class="n">etape</span> <span class="o">=</span> <span class="s1">&#39;un bambin&#39;</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">:</span>
+  <span class="n">etape</span> <span class="o">=</span> <span class="s1">&#39;un enfant&#39;</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+  <span class="n">etape</span> <span class="o">=</span> <span class="s1">&#39;un adolescent&#39;</span>
+<span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">:</span>
+  <span class="n">etape</span> <span class="o">=</span> <span class="s1">&#39;un adulte&#39;</span>
+<span class="k">else</span><span class="p">:</span> <span class="c1"># 65 ans ou plus</span>
+  <span class="n">etape</span> <span class="o">=</span> <span class="s1">&#39;un aîné&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cette personne est </span><span class="si">{</span><span class="n">etape</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cette personne est un adulte.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-7-fruit-prefere-adapte-aux-plats-camerounais">
+<h4>Correction 7 : Fruit Préféré (Adapté aux plats camerounais)<a class="headerlink" href="#correction-7-fruit-prefere-adapte-aux-plats-camerounais" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plats_preferes.py</span>
+<span class="n">plats_preferes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ndole&#39;</span><span class="p">,</span> <span class="s1">&#39;poulet dg&#39;</span><span class="p">,</span> <span class="s1">&#39;poisson braise&#39;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="s1">&#39;ndole&#39;</span> <span class="ow">in</span> <span class="n">plats_preferes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous aimez vraiment le Ndolé !&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;eru&#39;</span> <span class="ow">in</span> <span class="n">plats_preferes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous aimez vraiment le Eru !&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;poulet dg&#39;</span> <span class="ow">in</span> <span class="n">plats_preferes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous aimez vraiment le Poulet DG !&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;poisson braise&#39;</span> <span class="ow">in</span> <span class="n">plats_preferes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous aimez vraiment le Poisson Braisé !&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="s1">&#39;okok&#39;</span> <span class="ow">in</span> <span class="n">plats_preferes</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Vous aimez vraiment le Okok !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vous aimez vraiment le Ndolé !
+Vous aimez vraiment le Poulet DG !
+Vous aimez vraiment le Poisson Braisé !
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-8-bonjour-admin">
+<h4>Correction 8 : Bonjour Admin<a class="headerlink" href="#correction-8-bonjour-admin" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bonjour_admin.py</span>
+<span class="n">noms_utilisateurs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;fatou&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;pierre&#39;</span><span class="p">,</span> <span class="s1">&#39;aicha&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">nom_utilisateur</span> <span class="ow">in</span> <span class="n">noms_utilisateurs</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">nom_utilisateur</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour admin, souhaitez-vous voir un rapport de statut ?&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bonjour </span><span class="si">{</span><span class="n">nom_utilisateur</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">, merci de vous reconnecter.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour Paul, merci de vous reconnecter.
+Bonjour Fatou, merci de vous reconnecter.
+Bonjour admin, souhaitez-vous voir un rapport de statut ?
+Bonjour Pierre, merci de vous reconnecter.
+Bonjour Aicha, merci de vous reconnecter.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-9-pas-d-utilisateurs">
+<h4>Correction 9 : Pas d’Utilisateurs<a class="headerlink" href="#correction-9-pas-d-utilisateurs" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pas_d_utilisateurs.py</span>
+<span class="n">noms_utilisateurs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;fatou&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;pierre&#39;</span><span class="p">,</span> <span class="s1">&#39;aicha&#39;</span><span class="p">]</span>
+<span class="c1"># noms_utilisateurs = [] # Décommentez pour tester le cas liste vide</span>
+
+<span class="k">if</span> <span class="n">noms_utilisateurs</span><span class="p">:</span> <span class="c1"># Vérifie si la liste n&#39;est pas vide</span>
+  <span class="k">for</span> <span class="n">nom_utilisateur</span> <span class="ow">in</span> <span class="n">noms_utilisateurs</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">nom_utilisateur</span> <span class="o">==</span> <span class="s1">&#39;admin&#39;</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour admin, souhaitez-vous voir un rapport de statut ?&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bonjour </span><span class="si">{</span><span class="n">nom_utilisateur</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">, merci de vous reconnecter.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nous devons trouver des utilisateurs !&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour Paul, merci de vous reconnecter.
+Bonjour Fatou, merci de vous reconnecter.
+Bonjour admin, souhaitez-vous voir un rapport de statut ?
+Bonjour Pierre, merci de vous reconnecter.
+Bonjour Aicha, merci de vous reconnecter.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-10-verification-des-noms-d-utilisateur">
+<h4>Correction 10 : Vérification des Noms d’Utilisateur<a class="headerlink" href="#correction-10-verification-des-noms-d-utilisateur" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># verification_noms_utilisateur.py</span>
+<span class="n">utilisateurs_actuels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;fatou&#39;</span><span class="p">,</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;pierre&#39;</span><span class="p">,</span> <span class="s1">&#39;aicha&#39;</span><span class="p">]</span>
+<span class="n">nouveaux_utilisateurs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;marie&#39;</span><span class="p">,</span> <span class="s1">&#39;pierre&#39;</span><span class="p">,</span> <span class="s1">&#39;jean&#39;</span><span class="p">,</span> <span class="s1">&#39;AICHA&#39;</span><span class="p">,</span> <span class="s1">&#39;david&#39;</span><span class="p">]</span>
+
+<span class="c1"># Crée une copie insensible à la casse pour la vérification</span>
+<span class="n">utilisateurs_actuels_lower</span> <span class="o">=</span> <span class="p">[</span><span class="n">user</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">utilisateurs_actuels</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">nouvel_utilisateur</span> <span class="ow">in</span> <span class="n">nouveaux_utilisateurs</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">nouvel_utilisateur</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">utilisateurs_actuels_lower</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Désolé, le nom d&#39;utilisateur &#39;</span><span class="si">{</span><span class="n">nouvel_utilisateur</span><span class="si">}</span><span class="s2">&#39; est déjà pris. Veuillez en choisir un autre.&quot;</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Le nom d&#39;utilisateur &#39;</span><span class="si">{</span><span class="n">nouvel_utilisateur</span><span class="si">}</span><span class="s2">&#39; est disponible.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Le nom d&#39;utilisateur &#39;marie&#39; est disponible.
+Désolé, le nom d&#39;utilisateur &#39;pierre&#39; est déjà pris. Veuillez en choisir un autre.
+Le nom d&#39;utilisateur &#39;jean&#39; est disponible.
+Désolé, le nom d&#39;utilisateur &#39;AICHA&#39; est déjà pris. Veuillez en choisir un autre.
+Le nom d&#39;utilisateur &#39;david&#39; est disponible.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-11-nombres-ordinaux-francais">
+<h4>Correction 11 : Nombres Ordinaux (Français)<a class="headerlink" href="#correction-11-nombres-ordinaux-francais" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># nombres_ordinaux.py</span>
+<span class="n">nombres</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="c1"># Crée la liste [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+
+<span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">nombres</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">nombre</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">ordinal</span> <span class="o">=</span> <span class="s2">&quot;1er&quot;</span>
+  <span class="k">elif</span> <span class="n">nombre</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">ordinal</span> <span class="o">=</span> <span class="s2">&quot;2ème&quot;</span> <span class="c1"># Ou &quot;2nd&quot;</span>
+  <span class="k">elif</span> <span class="n">nombre</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">ordinal</span> <span class="o">=</span> <span class="s2">&quot;3ème&quot;</span>
+  <span class="k">else</span><span class="p">:</span> <span class="c1"># Pour 4 à 9</span>
+    <span class="n">ordinal</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">ème&quot;</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">ordinal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1er
+2ème
+3ème
+4ème
+5ème
+6ème
+7ème
+8ème
+9ème
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correction-12-style-des-instructions-if">
+<h4>Correction 12 : Style des instructions if<a class="headerlink" href="#correction-12-style-des-instructions-if" title="Link to this heading">#</a></h4>
+<p>Cet exercice demande une révision du code écrit précédemment. Assurez-vous que :</p>
+<ul class="simple">
+<li><p>Il y a un espace avant et après chaque opérateur de comparaison (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>).</p></li>
+<li><p>L’indentation est cohérente (4 espaces par niveau).</p></li>
+<li><p>Les lignes ne dépassent pas ~79 caractères.</p></li>
+</ul>
+</section>
+<section id="correction-13-vos-idees">
+<h4>Correction 13 : Vos Idées<a class="headerlink" href="#correction-13-vos-idees" title="Link to this heading">#</a></h4>
+<p>Ceci est un exercice de réflexion personnelle. Il n’y a pas de “correction” unique. L’objectif est d’encourager à penser à des projets personnels maintenant que les bases des instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> et des listes sont acquises.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "boodscode237/apprendre_python",
+            ref: "main/",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_Travailler_avec_des_lists.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Travailler avec des listes</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-des-matieres">Table des Matières</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-simple">Un Exemple Simple</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-conditionnels">Tests Conditionnels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-de-l-egalite">Vérification de l’Égalité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ignorer-la-casse-lors-de-la-verification-de-l-egalite">Ignorer la Casse lors de la Vérification de l’Égalité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-de-l-inegalite">Vérification de l’Inégalité</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaisons-numeriques">Comparaisons Numériques</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-de-conditions-multiples">Vérification de Conditions Multiples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verifier-si-une-valeur-est-dans-une-liste">Vérifier si une Valeur est dans une Liste</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verifier-si-une-valeur-n-est-pas-dans-une-liste">Vérifier si une Valeur n’est pas dans une Liste</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-booleennes">Expressions Booléennes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-if">Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-if-simples">Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> Simples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-if-else">Instructions <code class="docutils literal notranslate"><span class="pre">if-else</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#la-chaine-if-elif-else">La Chaîne <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-de-plusieurs-blocs-elif">Utilisation de Plusieurs Blocs <code class="docutils literal notranslate"><span class="pre">elif</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#omission-du-bloc-else">Omission du Bloc <code class="docutils literal notranslate"><span class="pre">else</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tester-plusieurs-conditions">Tester Plusieurs Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-des-instructions-if-avec-les-listes">Utilisation des Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code> avec les Listes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-des-elements-speciaux">Vérification des Éléments Spéciaux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#verifier-qu-une-liste-n-est-pas-vide">Vérifier qu’une Liste n’est pas Vide</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisation-de-plusieurs-listes">Utilisation de Plusieurs Listes</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-de-vos-instructions-if">Style de Vos Instructions <code class="docutils literal notranslate"><span class="pre">if</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercices">Exercices</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2-plus-de-tests-conditionnels">Exercice 2 : Plus de Tests Conditionnels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3-couleurs-d-aliens-1">Exercice 3 : Couleurs d’Aliens #1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4-couleurs-d-aliens-2">Exercice 4 : Couleurs d’Aliens #2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-5-couleurs-d-aliens-3">Exercice 5 : Couleurs d’Aliens #3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-6-etapes-de-la-vie">Exercice 6 : Étapes de la Vie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-7-fruit-prefere">Exercice 7 : Fruit Préféré</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-8-bonjour-admin">Exercice 8 : Bonjour Admin</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-9-pas-d-utilisateurs">Exercice 9 : Pas d’Utilisateurs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-10-verification-des-noms-d-utilisateur">Exercice 10 : Vérification des Noms d’Utilisateur</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-11-nombres-ordinaux">Exercice 11 : Nombres Ordinaux</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-12-style-des-instructions-if">Exercice 12 : Style des instructions if</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-13-vos-idees">Exercice 13 : Vos Idées</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corrections-des-exercices">Corrections des Exercices</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-1-2-tests-conditionnels">Correction 1 &amp; 2 : Tests Conditionnels</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-3-couleurs-d-aliens-1">Correction 3 : Couleurs d’Aliens #1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-4-couleurs-d-aliens-2">Correction 4 : Couleurs d’Aliens #2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-5-couleurs-d-aliens-3">Correction 5 : Couleurs d’Aliens #3</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-6-etapes-de-la-vie">Correction 6 : Étapes de la Vie</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-7-fruit-prefere-adapte-aux-plats-camerounais">Correction 7 : Fruit Préféré (Adapté aux plats camerounais)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-8-bonjour-admin">Correction 8 : Bonjour Admin</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-9-pas-d-utilisateurs">Correction 9 : Pas d’Utilisateurs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-10-verification-des-noms-d-utilisateur">Correction 10 : Vérification des Noms d’Utilisateur</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-11-nombres-ordinaux-francais">Correction 11 : Nombres Ordinaux (Français)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-12-style-des-instructions-if">Correction 12 : Style des instructions if</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correction-13-vos-idees">Correction 13 : Vos Idées</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Brice Donald Abodo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright © 2025 Boodscode237.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
